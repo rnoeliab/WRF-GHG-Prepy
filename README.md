@@ -3,7 +3,7 @@
 A pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
 Steps to follow:
-- git clone "[.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
+- git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
 
 ## 1. Anthropogenic Emissions
 
