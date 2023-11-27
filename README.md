@@ -47,7 +47,7 @@ To obtain fire emissions data from GFAS (), it is necessary to perform some prev
 
 ```
 
-The next step is modify the "[download_gfas_fire.py]()" script:
+The next step is modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_gfas_fire.py)" script:
 ```
 c.retrieve(
     'cams-global-fire-emissions-gfas',
@@ -64,7 +64,7 @@ c.retrieve(
     'gdas_fires.nc'       ---> here!!!!
     )
 ```
-And then run:
+Then run the script:
 
 ```
 $ create activate vprm
