@@ -13,7 +13,7 @@ Second, go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) d
 - cd  Inputs-WRF-VPRM/pys/ 
 
 ## 1. Anthropogenic Emissions
-This code will download CO, CO2 and CH4 emissions data from different sources. This information will be necessary to 
+Preparing Anthropogenic emissions: 
 
 Check if the "download_edgar_ghg.sh" script is ready to be executed, if not, write:
 
@@ -23,8 +23,11 @@ then, run:
 
 - ./download_edgar_ghg.sh
 
+This code will download CO, CO2 and CH4 emissions data from different sources. This information will be necessary to 
 
-Second, run EDGARtoAE.py. For this step, is necessary install...
+The next step is to run the python script "EDGARtoAE.py". To do this step, we must take into account some points:
+
+-  
 
 
 run the download.sh code
