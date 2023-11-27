@@ -29,13 +29,14 @@ a. Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/In
 b. conda create -n vprm python==3.8 
 c. conda activate vprm
 d. conda install -c conda-forge xarray dask netCDF4 bottleneck
+e. python EDGARtoAE.py
 ```
 -  
 
 
-run the download.sh code
-
 ## 2. Fires Emissions
+
+
 
 ## 3. Biogenic Emissions
 
