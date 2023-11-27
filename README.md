@@ -1,5 +1,7 @@
 # WRF-VPRM-PrepPy
 
+The Weather Research and Forecasting (WRF) Model is a state of the art mesoscale numerical weather prediction system designed for both atmospheric research and operational forecasting applications. The model serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers. Coupled with the Vegetation Photosynthesis and Respiration Model (VPRM) (referred to as WRF-VPRM)
+
 A pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
 Steps to follow:
