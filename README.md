@@ -13,7 +13,7 @@ Second, go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) d
 - cd  Inputs-WRF-VPRM/pys/ 
 
 ## 1. Anthropogenic Emissions
-Preparing Anthropogenic emissions: 
+Preparing the Anthropogenic emissions: 
 
 Check if the "download_edgar_ghg.sh" script is ready to be executed:
 ```
@@ -33,8 +33,27 @@ e. python EDGARtoAE.py
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
 
 ## 2. Fire Emissions
+Preparing the Fire emissions: 
 
+To obtain fire emissions data from GFAS (), it is necessary to perform some previous steps:
 
+```
+1. Create ".cdsapirc" in the $HOME directory 
+   gedit .cdsapirc &
+2. to type:
+   url: https://cds.climate.copernicus.eu/api/v2
+   key: 179971:0bccfb92-2c39-4eb3-ab7d-0ffb7fc21c92
+3. save .cdsapirc
+
+```
+
+Then, run the script:
+
+```
+$ create activate vprm
+$ conda install -c conda-forge cdsapi
+$ python download_gfas_fire.py
+```
 
 ## 3. Biogenic Emissions
 
