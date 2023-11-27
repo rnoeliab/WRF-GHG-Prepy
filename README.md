@@ -6,8 +6,10 @@ To run WRF-VPRM is necessary to prepare some data such as input (Anthropogenic, 
 
 Therefore, a pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
-Steps to follow:
+First, clone this repository:
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
+
+Second, go to "[pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys)" directory
 
 ## 1. Anthropogenic Emissions
 
