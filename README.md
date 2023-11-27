@@ -38,16 +38,33 @@ Preparing the Fire emissions:
 To obtain fire emissions data from GFAS (), it is necessary to perform some previous steps:
 
 ```
-1. Create ".cdsapirc" in the $HOME directory 
+1. Create ".cdsapirc" in the $HOME/ directory 
    gedit .cdsapirc &
 2. to type:
    url: https://cds.climate.copernicus.eu/api/v2
    key: 179971:0bccfb92-2c39-4eb3-ab7d-0ffb7fc21c92
-3. save .cdsapirc
+3. And, save.
 
 ```
 
-Then, run the script:
+The next step is modify the "[download_gfas_fire.py]()" script:
+```
+c.retrieve(
+    'cams-global-fire-emissions-gfas',
+    {
+    'format':'netcdf',
+    'variable':['altitude_of_plume_bottom', 
+                'altitude_of_plume_top', 'injection_height', 
+                'mean_altitude_of_maximum_injection', 
+                'wildfire_flux_of_carbon_dioxide', 
+                'wildfire_flux_of_methane',
+                'wildfire_flux_of_carbon_monoxide'],
+    'date':'2022-08-01/2022-08-31',    ---> here!!!!
+    },
+    'gdas_fires.nc'       ---> here!!!!
+    )
+```
+And then run:
 
 ```
 $ create activate vprm
