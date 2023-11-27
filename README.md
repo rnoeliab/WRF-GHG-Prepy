@@ -20,9 +20,7 @@ Check if the "download_edgar_ghg.sh" script is ready to be executed:
 $ chmod +x download_edgar_ghg.sh
 $ ./download_edgar_ghg.sh
 ```
-This code will download CO, CO2 and CH4 emissions data from different sources. This information will be necessary to 
-
-The next step is to run the python script "EDGARtoAE.py". To do this step, we must take into account some points:
+This code will download CO, CO2 and CH4 emissions data from different sources, except for fire emissions. The next step is to run the python script "EDGARtoAE.py". To do this step, we must take into account some points:
 
 ```
 a. Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda))
@@ -31,10 +29,10 @@ c. conda activate vprm
 d. conda install -c conda-forge xarray dask netCDF4 bottleneck
 e. python EDGARtoAE.py
 ```
--  
 
+This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
 
-## 2. Fires Emissions
+## 2. Fire Emissions
 
 
 
