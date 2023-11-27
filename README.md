@@ -6,16 +6,23 @@ To run WRF-VPRM is necessary to prepare some data such as input (Anthropogenic, 
 
 Therefore, a pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
-First, clone this repository:
+First, clone this repository in a linux/windows terminal:
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
 
-Second, go to "[pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys)" directory
+Second, go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) directory:
+- cd  Inputs-WRF-VPRM/pys/ 
 
 ## 1. Anthropogenic Emissions
+This code will download CO, CO2 and CH4 emissions data from different sources. This information will be necessary to 
 
-First, write:
+Check if the "download_edgar_ghg.sh" script is ready to be executed, if not, write:
 
-chmod +x "download_edgar_ghg.sh", then run the code "./download_edgar_ghg.sh". This code will download CO, CO2 and CH4 emissions data from different sources. This information will be necessary to  
+- chmod +x download_edgar_ghg.sh
+
+then, run:
+
+- ./download_edgar_ghg.sh
+
 
 Second, run EDGARtoAE.py. For this step, is necessary install...
 
