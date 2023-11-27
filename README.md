@@ -27,10 +27,11 @@ This code will download CO, CO2 and CH4 emissions data from different sources. T
 
 The next step is to run the python script "EDGARtoAE.py". To do this step, we must take into account some points:
 
->> Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda)) \\n
->> conda create -n vprm python==3.8 
->> conda activate vprm
->> conda install -c conda-forge xarray dask netCDF4 bottleneck
+```
+* Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda))
+* conda create -n vprm python==3.8 
+* conda activate vprm
+* conda install -c conda-forge xarray dask netCDF4 bottleneck
 
 -  
 
