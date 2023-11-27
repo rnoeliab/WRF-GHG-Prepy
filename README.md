@@ -44,7 +44,6 @@ To obtain fire emissions data from GFAS (), it is necessary to perform some prev
    url: https://cds.climate.copernicus.eu/api/v2
    key: 179971:0bccfb92-2c39-4eb3-ab7d-0ffb7fc21c92
 3. And, save.
-
 ```
 
 The next step is modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_gfas_fire.py)" script:
@@ -73,5 +72,10 @@ $ python download_gfas_fire.py
 ```
 
 ## 3. Biogenic Emissions
+Preparing the Biogenic emissions: 
+
+Here, we 
+
+
 
 ## 4. Background Fields
