@@ -41,8 +41,9 @@ To obtain fire emissions data from GFAS (), it is necessary to perform some prev
 1. Create ".cdsapirc" in the $HOME/ directory 
    gedit .cdsapirc &
 2. to type:
-   url: https://cds.climate.copernicus.eu/api/v2
-   key: 179971:0bccfb92-2c39-4eb3-ab7d-0ffb7fc21c92
+   # To GFAS
+   url: https://ads.atmosphere.copernicus.eu/api/v2
+   key: YOUR KEY
 3. And, save.
 ```
 
