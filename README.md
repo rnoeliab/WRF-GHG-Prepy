@@ -59,10 +59,11 @@ c.retrieve(
                 'wildfire_flux_of_carbon_dioxide', 
                 'wildfire_flux_of_methane',
                 'wildfire_flux_of_carbon_monoxide'],
-    'date':'2022-08-01/2022-08-31',    ---> here!!!!
+    'date':'2022-08-01/2022-08-31',      ### Change here
     },
-    'gdas_fires.nc'       ---> here!!!!
+    'gdas_fires.nc'                      #### change here 
     )
+    
 ```
 Then run the script:
 

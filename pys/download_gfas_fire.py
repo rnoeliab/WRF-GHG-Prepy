@@ -10,7 +10,7 @@ import os
 
 print("Current directory:", os.getcwd())
 os.chdir('..')
-newpath = os.getcwd() + '/input/fires_ghg/'
+newpath = os.getcwd() + '/input/fire_ghg/'
 print("New directory:", newpath)
 os.chdir(newpath)
 
@@ -26,7 +26,9 @@ c.retrieve(
                 'wildfire_flux_of_carbon_dioxide', 
                 'wildfire_flux_of_methane',
                 'wildfire_flux_of_carbon_monoxide'],
-    'date':'2022-08-01/2022-08-31',
+    'date':'2022-08-01/2022-08-31',     ### Change here
     },
-    'gdas_fires.nc'
+    'gdas_fires.nc'               #### change here 
     )
+    
+    
