@@ -95,7 +95,7 @@ $ create activate vprm
 $ python download_era5_soiltemperature.py
 ```
 
-For CO2 fields, with VPRM-code:
+For CO2 fields, it is necessary t:
 
 
 ## 4. Background Fields
