@@ -76,9 +76,9 @@ $ python download_gfas_fire.py
 ## 3. Biogenic Emissions
 Preparing the Biogenic emissions: 
 
-Here, we go to 
+Here, we first need to get some files ready:
 
-
+For CH4 fields, we need to download soil temperature data from ERA5:
 ```
 1. Create ".cdsapirc" in the $HOME/ directory 
    gedit .cdsapirc &
@@ -88,6 +88,9 @@ Here, we go to
    key: YOUR KEY
 3. And, save.
 ```
+Then, to have the cpool and wetland maps ready.
+
+For CO2 fields, with VPRM-code:
 
 
 ## 4. Background Fields
