@@ -78,7 +78,7 @@ Preparing the Biogenic emissions:
 
 Here, we first need to get some files ready:
 
-For CH4 fields, we need to download soil temperature data from ERA5:
+For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and download soil temperature data from ERA5:
 ```
 1. Create ".cdsapirc" in the $HOME/ directory 
    gedit .cdsapirc &
@@ -88,7 +88,6 @@ For CH4 fields, we need to download soil temperature data from ERA5:
    key: YOUR KEY
 3. And, save.
 ```
-Then, to have the cpool ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready.
 
 For CO2 fields, with VPRM-code:
 
