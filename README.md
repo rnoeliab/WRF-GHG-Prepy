@@ -76,8 +76,18 @@ $ python download_gfas_fire.py
 ## 3. Biogenic Emissions
 Preparing the Biogenic emissions: 
 
-Here, we 
+Here, we go to 
 
+
+```
+1. Create ".cdsapirc" in the $HOME/ directory 
+   gedit .cdsapirc &
+2. to type:
+   # To Meteo
+   url: https://cds.climate.copernicus.eu/api/v2
+   key: YOUR KEY
+3. And, save.
+```
 
 
 ## 4. Background Fields
