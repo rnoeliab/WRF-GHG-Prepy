@@ -98,5 +98,14 @@ $ python download_era5_soiltemperature.py
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
+```
+VPRM_input_EVI_2022.nc
+VPRM_input_EVI_MAX_2022.nc
+VPRM_input_EVI_MIN_2022.nc
+VPRM_input_LSWI_2022.nc
+VPRM_input_LSWI_MAX_2022.nc
+VPRM_input_LSWI_MIN_2022.nc
+VPRM_input_VEG_FRA_2022.nc
+```
 
 ## 4. Background Fields
