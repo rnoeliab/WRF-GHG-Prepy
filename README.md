@@ -72,6 +72,7 @@ $ create activate vprm
 $ conda install -c conda-forge cdsapi
 $ python download_gfas_fire.py
 ```
+This information will be necessary to run the "[prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py)" script.
 
 ## 3. Biogenic Emissions
 Preparing the Biogenic emissions: 
