@@ -89,14 +89,14 @@ For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.co
    key: YOUR KEY
 3. And, save.
 ```
-Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script:
+Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script, using:
 
 ```
 $ create activate vprm
 $ python download_era5_soiltemperature.py
 ```
 
-For CO2 fields, it is necessary t:
+For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
 
 ## 4. Background Fields
