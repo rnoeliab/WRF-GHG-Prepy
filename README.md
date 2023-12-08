@@ -24,10 +24,9 @@ This code will download CO, CO2 and CH4 emissions data from different sources, e
 
 ```
 a. Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda))
-b. conda create -n vprm python==3.8 
-c. conda activate vprm
-d. conda install -c conda-forge xarray dask netCDF4 bottleneck
-e. python EDGARtoAE.py
+b. conda env create -f environment.yml
+c. conda activate vprm-envs 
+d. python EDGARtoAE.py
 ```
 
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
