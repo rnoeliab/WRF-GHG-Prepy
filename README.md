@@ -86,10 +86,9 @@ For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.co
    key: YOUR KEY
 3. And, save.
 ```
-Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script, using:
+Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script in the environment "vprm-envs":
 
 ```
-$ create activate vprm
 $ python download_era5_soiltemperature.py
 ```
 
