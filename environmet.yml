@@ -1,1 +1,11 @@
-ddd
+name: vprm-envs
+
+dependencies:
+  - python=3.9.13
+  - numpy
+  - matplotlib
+  - xarray
+  - pandas
+  - dask
+  - netCDF
+  - bottleneck
