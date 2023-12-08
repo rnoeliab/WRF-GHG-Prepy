@@ -34,7 +34,7 @@ This information will be necessary to run the "[prep_edgar.py](https://github.co
 ## 2. Fire Emissions
 Preparing the Fire emissions: 
 
-To obtain fire emissions data from GFAS (), it is necessary to perform some previous steps:
+To obtain fire emissions data from GFAS [GFAS website](https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-fire-emissions-gfas?tab=form), it is necessary to perform some previous steps:
 
 ```
 1. Create ".cdsapirc" in the $HOME/ directory 
