@@ -48,11 +48,14 @@ For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.co
 4. And, save.
 ```
 
-Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script in the environment "vprm-envs":
+Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script to obtain soil temperature data for the appropriate **year** and over our **study area**.
 
 ```
 $ python download_era5_soiltemperature.py
 ```
+
+[!NOTE]  
+
 
 ### 1.2. VPRM code
 
