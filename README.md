@@ -54,8 +54,12 @@ Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WR
 $ python download_era5_soiltemperature.py
 ```
 
-[!NOTE]  
+:::note
+This is a note
+:::
 
+[!NOTE]  
+Don't forget that it must be run within the vprm-envs environment
 
 ### 1.2. VPRM code
 
