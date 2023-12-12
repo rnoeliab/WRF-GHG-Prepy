@@ -11,7 +11,7 @@ To run the WRF-VPRM model is necessary to have some data ready.  Therefore, a te
 
 Here, we are using the WRF-VPRM v4.2.1 model:
 
-- First of all, the model is run to have the **"wrfinput"** and **"wrfbdy"** files ready (only using ./real.exe). Also, we need to have the geo_em.d0#.nc files saved.
+- First of all, the model is run to have the **"wrfinput"** and **"wrfbdy"** files ready (only using **./real.exe**). Also, we need to have the **geo_em.d0#.nc** files saved.
 
 Now, let's clone this repository in a linux/windows terminal:
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
@@ -29,23 +29,36 @@ c. conda activate vprm-envs
 
 ## 1. Biogenic Emissions
 
-Here, we first need to get some files ready:
+This processing is divided into two parts: For the Kaplan model and for the VPRM code:
 
-For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and download soil temperature data from ERA5:
+### 1.1. Kaplan model - Biogenic Methane
+
+For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and also download the soil temperature data provided by ERA5 model, using the following step:
+
 ```
-1. Create ".cdsapirc" in the $HOME/ directory 
-   gedit .cdsapirc &
-2. to type:
+1. Create a user, log in and read How to use the CDS API:
+   >  https://cds.climate.copernicus.eu/api-how-to
+
+2. Create ".cdsapirc" in the $HOME/ directory 
+   > gedit .cdsapirc &
+3. write the following:
    # To Meteo
    url: https://cds.climate.copernicus.eu/api/v2
    key: YOUR KEY
-3. And, save.
+4. And, save.
 ```
+
 Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script in the environment "vprm-envs":
 
 ```
 $ python download_era5_soiltemperature.py
 ```
+
+### 1.2. VPRM code
+
+Here, we first need to get some files ready:
+
+
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
