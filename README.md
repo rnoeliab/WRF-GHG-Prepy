@@ -4,8 +4,10 @@ The Weather Research and Forecasting (WRF) Model is a state of the art mesoscale
 
 ![all text](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/flowchart_vprm.png)
 
-To run the WRF-VPRM model is necessary to have some data ready.  Therefore, a technique was created to prepare all CO2 and CH4 emissions from different sources (see figure above). The model needs external data (Biogenic, Anthropogenic and Fires Emissions), input and boundary conditions data (point four). 
+To run the WRF-VPRM model is necessary to have some data ready.  Therefore, a technique was created to prepare all CO2 and CH4 emissions from different sources (see figure above). The model needs external data (Biogenic, Anthropogenic and Fires Emissions), input and boundary conditions data (background data). 
 
+
+### Preparing external data !!!
 Therefore, a pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
 First, clone this repository in a linux/windows terminal:
