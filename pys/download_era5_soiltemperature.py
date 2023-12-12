@@ -23,9 +23,8 @@ c.retrieve(
         'product_type': 'monthly_averaged_reanalysis',
         'variable': [
             'soil_temperature_level_1','soil_temperature_level_2', 
-            'soil_temperature_level_3', 'soil_temperature_level_4',
-        ],
-        'year': '2022',
+            'soil_temperature_level_3', 'soil_temperature_level_4'],
+        'year': '2022',                 ###  here you must to change
         'month': [
             '01', '02', '03',
             '04', '05', '06',
@@ -34,9 +33,9 @@ c.retrieve(
         ],
         'time': '00:00',
         'area': [
-            90, -180, -90,
+            90, -180, -90,           #### here you must to change
             180,
         ],
         'format': 'netcdf',
     },
-    'ERA_monthly_soiltemperature_2022.nc')
+    'ERA_monthly_soiltemperature_2022.nc')    #### here you must to change

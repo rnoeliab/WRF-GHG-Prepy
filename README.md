@@ -37,7 +37,7 @@ For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.co
 
 ```
 1. Create a user, log in and read How to use the CDS API:
-   >  https://cds.climate.copernicus.eu/api-how-to
+   > https://cds.climate.copernicus.eu/api-how-to
 
 2. Create ".cdsapirc" in the $HOME/ directory 
    > gedit .cdsapirc &
