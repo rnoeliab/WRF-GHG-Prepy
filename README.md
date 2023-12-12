@@ -8,13 +8,52 @@ To run the WRF-VPRM model is necessary to have some data ready.  Therefore, a te
 
 
 ### Preparing external data !!!
-Therefore, a pre-processing tô obtain the input fields tô run WRF-VPRM v4.2.1 model is executed here.
 
-First, clone this repository in a linux/windows terminal:
+Here, we are using the WRF-VPRM v4.2.1 model:
+
+- First of all, the model is run to have the "wrfinput" and "wrfbdy" files ready (only using ./real.exe). Also, we need to have the geo_em.d0#.nc files saved.
+
+Now, let's clone this repository in a linux/windows terminal:
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
 
-Second, go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) directory:
+Next, let's go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) directory:
 - cd  Inputs-WRF-VPRM/pys/ 
+
+
+## 1. Biogenic Emissions
+
+Here, we first need to get some files ready:
+
+For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and download soil temperature data from ERA5:
+```
+1. Create ".cdsapirc" in the $HOME/ directory 
+   gedit .cdsapirc &
+2. to type:
+   # To Meteo
+   url: https://cds.climate.copernicus.eu/api/v2
+   key: YOUR KEY
+3. And, save.
+```
+Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script in the environment "vprm-envs":
+
+```
+$ python download_era5_soiltemperature.py
+```
+
+For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
+
+```
+VPRM_input_EVI_2022.nc
+VPRM_input_EVI_MAX_2022.nc
+VPRM_input_EVI_MIN_2022.nc
+VPRM_input_LSWI_2022.nc
+VPRM_input_LSWI_MAX_2022.nc
+VPRM_input_LSWI_MIN_2022.nc
+VPRM_input_VEG_FRA_2022.nc
+```
+
+
+
 
 ## 1. Anthropogenic Emissions
 Preparing the Anthropogenic emissions: 
@@ -75,37 +114,5 @@ $ python download_gfas_fire.py
 ```
 This information will be necessary to run the "[prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py)" script.
 
-## 3. Biogenic Emissions
-Preparing the Biogenic emissions: 
-
-Here, we first need to get some files ready:
-
-For CH4 fields, we need to have the cpool ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and download soil temperature data from ERA5:
-```
-1. Create ".cdsapirc" in the $HOME/ directory 
-   gedit .cdsapirc &
-2. to type:
-   # To Meteo
-   url: https://cds.climate.copernicus.eu/api/v2
-   key: YOUR KEY
-3. And, save.
-```
-Then, run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script in the environment "vprm-envs":
-
-```
-$ python download_era5_soiltemperature.py
-```
-
-For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
-
-```
-VPRM_input_EVI_2022.nc
-VPRM_input_EVI_MAX_2022.nc
-VPRM_input_EVI_MIN_2022.nc
-VPRM_input_LSWI_2022.nc
-VPRM_input_LSWI_MAX_2022.nc
-VPRM_input_LSWI_MIN_2022.nc
-VPRM_input_VEG_FRA_2022.nc
-```
 
 ## 4. Background Fields
