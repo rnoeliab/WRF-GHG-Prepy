@@ -57,11 +57,14 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within the vprm-envs environment
 
-Three scripts to take into account: 
+**READ HERE**
+After carrying out these procedures, we are going to generate three files (see the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio) directory), these files will be read by these three scripts:
 
 - [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
 - [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
 - [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
+
+These scripts are within the WRF-VPRM-Prepy code
 
 
 ### 1.2. VPRM code
