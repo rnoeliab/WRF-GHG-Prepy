@@ -64,14 +64,11 @@ After carrying out these procedures, we are going to generate three files (see t
 - [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
 - [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
 
-These scripts are within the WRF-VPRM-Prepy code
-
+And, these scripts are within the WRF-VPRM-Prepy code
 
 ### 1.2. VPRM code
 
 Here, we first need to get some files ready:
-
-
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
@@ -85,10 +82,7 @@ VPRM_input_LSWI_MIN_2022.nc
 VPRM_input_VEG_FRA_2022.nc
 ```
 
-
-
-
-## 1. Anthropogenic Emissions
+## 2. Anthropogenic Emissions
 Preparing the Anthropogenic emissions: 
 
 Check if the "download_edgar_ghg.sh" script is ready to be executed:

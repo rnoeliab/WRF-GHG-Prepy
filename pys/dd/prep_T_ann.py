@@ -16,7 +16,7 @@ wrf_lmask      = np.array(wrf_geo.variables['LANDMASK'])
 wrf_lat_c      = np.array(wrf_geo.variables['XLAT_C'])
 wrf_lon_c      = np.array(wrf_geo.variables['XLONG_C'])
 
-temp_data      = cdf.Dataset(t_ann_path)
+temp_data      = cdf.Dataset(ch4_bio_p+t_ann_path)
 soil_temp_avg  = np.array(temp_data.variables[t_var]).mean(axis=0)  ### AVG taken here.
 #fill_value     = -9.0000017e+33
 #soil_temp_avg[soil_temp_avg==fill_value] = 0    #
@@ -54,7 +54,7 @@ domain        = dom #wrf_input.getncattr('GRID_ID')
 projection    = projection_wrf #wrf_input.MAP_PROJ_CHAR
 units         = 'K'
 
-filename      = t_ann_out + 'T_ANN_d0%s_%s.nc'%(domain,pd.to_datetime(date).year)
+filename      = output_reg + 'T_ANN_d0%s_%s.nc'%(domain,pd.to_datetime(date).year)
 dataset       = cdf.Dataset(filename,'w',format='NETCDF4_CLASSIC')
 # Dimensions
 lat           = dataset.createDimension(dim_emi_items[3][0], wrf_input.getncattr('SOUTH-NORTH_PATCH_END_UNSTAG'))

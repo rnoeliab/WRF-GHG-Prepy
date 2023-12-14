@@ -15,8 +15,6 @@ wrf_lmask   = np.array(wrf_i.variables['LANDMASK'])
 
 print('generating netcdf file for cpool based on wrf landmask..')
 
-#dataset.close()
-
 wrf_input     = wrf_i
 dim_emi_items = list(wrf_input.dimensions.items())
 
@@ -25,7 +23,7 @@ domain        = dom #wrf_input.getncattr('GRID_ID')
 projection    = projection_wrf
 units         = 'Kg m-2 month-1'
 #filename      = cpool_out + 'cpool_fast_LPJ_cdo_d0%s_%s.nc'%(domain,date)
-filename      = cpool_out + 'CPOOL_d0%s_%s.nc'%(domain,pd.to_datetime(date).year)
+filename      = output_reg + 'CPOOL_d0%s_%s.nc'%(domain,pd.to_datetime(date).year)
 
 dataset       = cdf.Dataset(filename,'w',format='NETCDF4_CLASSIC')
 # Dimensions

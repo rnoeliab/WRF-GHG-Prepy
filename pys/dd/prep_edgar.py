@@ -6,7 +6,7 @@ import xarray as xr
 import warnings, glob
 
 print('STARTING WITH WETCHARTS AND EDGAR GHG emissions REGRID-PREPROCESSING')
-wrf_i          = cdf.Dataset(wrf_inp)
+wrf_i          = cdf.Dataset(wrf_inp_p)
 wrf_geo        = cdf.Dataset(wrf_geo_p)
 wrf_lat        = np.array(wrf_geo.variables['XLAT_M'])
 wrf_lon        = np.array(wrf_geo.variables['XLONG_M'])
@@ -102,7 +102,7 @@ nhoras        = ["{:02d}".format(n) for n in np.arange(0,24,1)]
 for q,m in enumerate(bytime):
     for h,d in enumerate(nhoras):
         date          = pd.to_datetime(m).strftime('%Y-%m-%d')+ '_'+d+':00:00'
-        filename      = edgar_out + 'wrfchemi_d0%s_%s'%(dom,str(date).replace(":","_"))
+        filename      = output_reg + 'wrfchemi_d0%s_%s'%(dom,str(date).replace(":","_"))
         dataset       = cdf.Dataset(filename,'w',format='NETCDF3_CLASSIC')
 
         # Dimensions

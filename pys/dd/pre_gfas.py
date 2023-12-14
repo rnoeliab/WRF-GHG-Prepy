@@ -6,7 +6,7 @@ import xarray as xr
 import warnings
 
 print('STARTING WITH GHG fire emissions REGRID-PREPROCESSING')
-wrf_i          = cdf.Dataset(wrf_inp)
+wrf_i          = cdf.Dataset(wrf_inp_p)
 wrf_geo        = cdf.Dataset(wrf_geo_p)
 wrf_lat        = np.array(wrf_geo.variables['XLAT_M'])
 wrf_lon        = np.array(wrf_geo.variables['XLONG_M'])

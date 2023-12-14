@@ -2,11 +2,10 @@ import numpy as np
 import math, os, glob
 import netCDF4 as cdf
 import xarray as xr
-from datetime import datetime, timedelta
-import datetime as dt
+from datetime import timedelta
 import pandas as pd
 from scipy.interpolate import interp1d
-
+  
 ######### READ CH4 BIO -- Kaplan inventory
 cpool  = xr.open_dataset(cpoolp)
 tann   = xr.open_dataset(tannp)
@@ -21,56 +20,25 @@ lswi_max = xr.open_dataset(lswi_maxp)
 lswi = xr.open_dataset(lswip)
 vegfra = xr.open_dataset(vegfrap)
 
-#wrf_i       = cdf.Dataset(wrf_inp)
-wrf_geo     = cdf.Dataset(wrf_inp_p)
-
-### Calculating the time of each EVI and LSWI data for interpolate
-#times_evi = pd.DataFrame({})
-#for n,t in enumerate(evi.time.values):
-#    cal = datetime(2022, 1, 1, tzinfo=timezone.utc) + timedelta(t.astype(float)-1)
-#    times_evi.loc[n,"date"] = pd.to_datetime(cal).strftime('%Y-%m-%d')
-#    times_evi.loc[n,'julian'] = t.astype(float)
-    
+wrf_i     = cdf.Dataset(wrf_inp_p)
+   
 ## Prepare the output dates
 all_time = pd.date_range(sim_time[0][0:4]+'-01-01', sim_time[1][0:4]+'-12-31',freq="D").strftime('%Y-%m-%d')
 
-############ storing the EVI and LSWI data for a year   ---using interpolating
-#new_evi = np.zeros((evi.evi.shape[0],all_time.shape[0],evi.evi.shape[2],evi.evi.shape[3]))
-#new_lswi = np.zeros((lswi.lswi.shape[0],all_time.shape[0],lswi.lswi.shape[2],lswi.lswi.shape[3]))
-
-#for v in range(evi.vprm_classes.shape[0]):
-#    len_time = np.arange(0,2,1)
-#    new_time = np.linspace(0,1,9)
-#    for t in range(evi.time.shape[0]-2):
-#        count = 0
-#        mask = np.isnan(evi.evi.values[v,t:t+2,:,:])
-#        evi.evi.values[v,t:t+2,:,:][mask] = np.interp(np.flatnonzero(mask), 
-#                                                      np.flatnonzero(~mask), 
-#                                                      evi.evi.values[v,t:t+2,:,:][~mask])
-#        f = interp1d(len_time,evi.evi.values[v,t:t+2,:,:], axis=0)
-#        f1 = interp1d(len_time,lswi.lswi.values[v,t:t+2,:,:], axis=0)
-#        for n in range(new_time.shape[0]-1):
-#            new_evi[v,evi.time.values[t]+count,:,:] = f(new_time[n])
-#            new_lswi[v,lswi.time.values[t]+count,:,:] = f1(new_time[n])
-#            count=count+1
-#    new_evi[v,evi.time.values[t]+count,:,:] =  new_evi[v,evi.time.values[t]+count-1,:,:]
-#    new_lswi[v,lswi.time.values[t]+count,:,:] =  new_lswi[v,lswi.time.values[t]+count-1,:,:]
-#    for t in range(4):   #### --- for 01/01 - 03/01 we use the same data in 04/01
-#        new_evi[v,t,:,:] = evi.evi.values[v,0,:,:]
-#        new_lswi[v,t,:,:] = lswi.lswi.values[v,0,:,:]
-
-
 #### drop the EVI and LSWI data for us time:
-#evi_month = new_evi[:,star:end+1,:,:]
-#lswi_month = new_lswi[:,star:end+1,:,:]
-
 star = list(all_time).index(sim_time[0][0:10])
 end = list(all_time).index(sim_time[1][0:10])
-evi_month = evi.sel(time=slice(star,end))
-lswi_month = lswi.sel(time=slice(star,end))
+evi_m = evi.sel(time=slice(star,end))
+lswi_m = lswi.sel(time=slice(star,end))
+
+evi_month = evi_m.evi.values
+lswi_month = lswi_m.lswi.values
+
+evi_month[np.isnan(evi_month)] = 0
+lswi_month[np.isnan(lswi_month)] = 0
 
 print('generating netcdf file..')
-wrf_input     = wrf_geo
+wrf_input     = wrf_i
 dim_emi_items = list(wrf_input.dimensions.items())
 domain        = dom
 projection    = projection_wrf
@@ -86,7 +54,7 @@ for q,m in enumerate(bytime):
     time          = dataset.createDimension('Time', 1)
     lon           = dataset.createDimension(dim_emi_items[2][0], wrf_input.getncattr('WEST-EAST_PATCH_END_UNSTAG'))
     lat           = dataset.createDimension(dim_emi_items[3][0], wrf_input.getncattr('SOUTH-NORTH_PATCH_END_UNSTAG'))
-    vegfran       = dataset.createDimension('vprm_vgcls',8)
+    vegfran       = dataset.createDimension('vprm_vgcls',9)
     levels        = dataset.createDimension('zdim',1)
 
     # Variables
@@ -109,10 +77,10 @@ for q,m in enumerate(bytime):
     time[:,:]           = np.array([" ".join(date).split()], dtype = 'S19')
     evi_min_in[:,:,:]   = evi_min.variables['evi_min'].values
     evi_max_in[:,:,:]   = evi_max.variables['evi_max'].values
-    evi_in[:,:,:]       = evi_month.variables['evi'].values[:,q,:,:]  #evi_month[:,q,:,:]
+    evi_in[:,:,:]       = evi_month[:,q,:,:]
     lswi_min_in[:,:,:]  = lswi_min.variables['lswi_min'].values
     lswi_max_in[:,:,:]  = lswi_max.variables['lswi_max'].values
-    lswi_in[:,:,:]      = lswi_month.variables['lswi'].values[:,q,:,:] #lswi_month[:,q,:,:]
+    lswi_in[:,:,:]      = lswi_month[:,q,:,:]
     vegfra_in[:,:,:]    = vegfra.variables['vegetation_fraction_map'].values
     cpool_in[:,:]       = cpool.variables['CPOOL'].values
     wetmap_in[:,:]      = wetmap.variables['WETMAP'].values
