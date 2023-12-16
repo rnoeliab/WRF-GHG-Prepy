@@ -1,5 +1,7 @@
-### EDGAR and WETCHART data.
+### Data from the EDGAR and WETCHART model.
 
-In this directory, two ("data_ghg" and "data_total") folders will be created. In the "data_total" folder, will be stored the CO, CO2 and CH4 emission data. Such as:
+![all text](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/anthr_ghg/capa1.png)
+
+![all text](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/anthr_ghg/capa2.png)
 
 
