@@ -11,7 +11,7 @@ To run the WRF-VPRM model is necessary to have some data ready.  Therefore, a te
 
 Here, we are using the WRF-VPRM v4.2.1 model:
 
-- First of all, the model is run to have the **"wrfinput"** and **"wrfbdy"** files ready (only using **./real.exe**). Also, we need to have the **geo_em.d0#.nc** files saved.
+- Firstly, the model has to be run to have **"wrfinput"** and **"wrfbdy"** files ready (only using **./real.exe**). Also, we need to have the **geo_em.d0#.nc** files saved.
 
 Now, let's clone this repository in a linux/windows terminal:
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
