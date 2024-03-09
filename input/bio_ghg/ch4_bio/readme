@@ -1,3 +1,10 @@
 
 
-The files here can be used for any period.
+- The files here (in netCDF) can be used for any period.
+
+- To generate these files in the same dimension as the WRF model, you need to run these scripts:
+
+	* python prep_wetland_kaplan.py
+	* python prep_cpool_lpj.py
+	* python prep_T_ann.py
+
