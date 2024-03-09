@@ -22,7 +22,7 @@ Next, let's go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/py
 Every time we execute a python script we must be in the **"vprm-envs"** environment, therefore, we have to perform this step before starting to run the WRF-VPRM preprocessing.
 
 ```
-a. Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda))
+a. Have Anaconda installed (https://github.com/rnoeliab/Installing_anaconda)
 b. conda env create -f environment.yml
 c. conda activate vprm-envs 
 ```
