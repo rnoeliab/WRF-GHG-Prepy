@@ -24,7 +24,7 @@ c.retrieve(
         'variable': [
             'soil_temperature_level_1','soil_temperature_level_2', 
             'soil_temperature_level_3', 'soil_temperature_level_4'],
-        'year': '2022',                 ###  here you must to change
+        'year': '2023',                 ###  here you must to change
         'month': [
             '01', '02', '03',
             '04', '05', '06',
@@ -38,4 +38,4 @@ c.retrieve(
         ],
         'format': 'netcdf',
     },
-    'ERA_monthly_soiltemperature_2022.nc')    #### here you must to change
+    'ERA_monthly_soiltemperature_2023.nc')    #### here you must to change
