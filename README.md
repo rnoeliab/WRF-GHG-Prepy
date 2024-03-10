@@ -13,10 +13,14 @@ Here, we are using the WRF-VPRM v4.2.1 model:
 
 Firstly,
 
-- Save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the "[wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)"
+- Save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
 
-Now, let's clone this repository in a linux/windows terminal:
+Secondly,
+
+- Clone this repository in a linux/windows terminal:
+```
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
+```
 
 Next, let's go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) directory:
 - cd  Inputs-WRF-VPRM/pys/ 
