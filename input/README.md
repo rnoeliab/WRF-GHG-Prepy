@@ -1,12 +1,24 @@
 # WRF-VPRM-PrepPy Code
 
-To run this script you need to install some libraries
+To run the main script "WRF_Chem_PrepPy.py" it is necessary to have the libraries ready. There are two paths:
+
+## 1. Running the file "environment.yml"
+
+```
+conda env create -f environment.yml
+```
+
+## 2. Manually
 
 ```
 conda create -n vprm python==3.8
 conda activate vprm
+pip install cdsapi
 conda install pandas
-
+conda install -c conda-forge xesmf
+conda install -c conda-forge dask netCDF4
+conda install -c conda-forge matplotlib cartopy jupyterlab
+conda install -c conda-forge xarray dask netCDF4 bottleneck
 ```
 
 
