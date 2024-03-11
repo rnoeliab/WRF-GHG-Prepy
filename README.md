@@ -57,7 +57,7 @@ This processing is divided into two parts: For the Kaplan model and for the VPRM
    key: YOUR KEY
 4. And, save.
 
-5. Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script to obtain soil temperature data for the appropriate **year** and over our **study area**.
+5. Run the download_era5_soiltemperature.py script (../pys/libraries/download_era5_soiltemperature.py) to obtain soil temperature data for the appropriate **year** and over our **study area**.
 
 $ python download_era5_soiltemperature.py
 ```
@@ -65,14 +65,12 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within the vprm environment
 
-**READ HERE**
-After carrying out these procedures, we are going to generate three files (see the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio) directory), these files will be read by these three scripts:
+- The files, in [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/global/), have to be ready to run the following scripts, which are located in the main script:
 
-- [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
-- [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
-- [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
+	- [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
+	- [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
+	- [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
 
-And, these scripts are within the WRF-VPRM-Prepy code
 
 #### A2. VPRM code
 
