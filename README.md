@@ -65,7 +65,7 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within the vprm environment
 
-- The files, in [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/global/), have to be ready to run the following scripts, which are located in the main script:
+- The files, in [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/), have to be ready to run the following scripts, which are located in the main script:
 
 	- [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
 	- [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
@@ -89,7 +89,7 @@ VPRM_input_VEG_FRA_2022.nc
 ```
 
 ### B. Anthropogenic Emissions
-Preparing the Anthropogenic emissions: 
+Preparing the Anthropogenic emissions (EDGAR + Wetchart): 
 
 Firstly, 
 - Check if the "download_edgar_ghg.sh" script is ready to be executed:
@@ -106,7 +106,11 @@ Secondly,
 python EDGARtoAE.py
 ```
 
-Now, for wetcharts
+Now, for wetchart:
+```
+Download this data!!!
+```
+
 
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
 
@@ -127,7 +131,7 @@ Firstly,
 ```
 
 Secondly,
-- Modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_gfas_fire.py)" script:
+- Modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/libraries/download_gfas_fire.py)" script:
 
 ```
 c.retrieve(
