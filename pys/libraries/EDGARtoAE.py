@@ -131,8 +131,8 @@ def write_netcdf_toAE(emiss, pollutant, sec, prefix="v6.0_",
     emiss.to_netcdf(file_name, unlimited_dims={"time": True})
 
 print("Current directory:", os.getcwd())
-os.chdir('..')
-newpath = os.getcwd() + '/input/anthr_ghg/'
+os.chdir('../..')
+newpath = os.getcwd() + '/input/anthr_ghg/EDGAR/'
 print("New directory:", newpath)
 os.chdir(newpath)
 os.mkdir('data_total')

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../input/anthr_ghg/EDGAR/
+cd ../../input/anthr_ghg/EDGAR/
 mkdir data_ghg
 cd data_ghg
 
@@ -70,5 +70,3 @@ unzip *zip
 rm *zip
 cd ..
 done
-
-rm *html

@@ -106,6 +106,8 @@ Secondly,
 python EDGARtoAE.py
 ```
 
+Now, for wetcharts
+
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
 
 ### C. Fire Emissions

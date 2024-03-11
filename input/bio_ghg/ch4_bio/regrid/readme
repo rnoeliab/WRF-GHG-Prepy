@@ -1,7 +1,0 @@
-
-Run the script to re-adjust global dimensions
-
-* python prep_wetland_kaplan.py
-* python prep_cpool_lpj.py
-* python prep_T_ann.py
-

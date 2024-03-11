@@ -9,8 +9,8 @@ import cdsapi
 import os
 
 print("Current directory:", os.getcwd())
-os.chdir('..')
-newpath = os.getcwd() + '/input/bio_ghg/ch4_bio/global/'
+os.chdir('../..')
+newpath = os.getcwd() + '/input/bio_ghg/ch4_bio/'
 print("New directory:", newpath)
 os.chdir(newpath)
 
