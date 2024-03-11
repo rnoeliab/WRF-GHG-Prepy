@@ -54,7 +54,7 @@ This processing is divided into two parts: For the Kaplan model and for the VPRM
 3. write the following:
    # To Meteo
    url: https://cds.climate.copernicus.eu/api/v2
-   key: YOUR KEY
+   key: <UID>:<APIKEY>
 4. And, save.
 
 5. Run the download_era5_soiltemperature.py script (../pys/libraries/download_era5_soiltemperature.py) to obtain soil temperature data for the appropriate **year** and over our **study area**.
@@ -120,7 +120,7 @@ Firstly,
 2. to type:
    # To GFAS
    url: https://ads.atmosphere.copernicus.eu/api/v2
-   key: YOUR KEY
+   key: <UID>:<APIKEY>
 3. And, save.
 ```
 
@@ -155,7 +155,7 @@ $ python download_gfas_fire.py
 This information will be necessary to run the "[prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py)" script.
 
 
-## 4. Background Fields
+### D. Background Fields
 
 
 ## 2. Run main script
