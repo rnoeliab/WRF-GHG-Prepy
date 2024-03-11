@@ -162,7 +162,12 @@ This information will be necessary to run the "[prep_gfas.py](https://github.com
 
 
 ### D. Background Fields
+- To obtain CO2 and CH4 data from background source, let's go to install MATLAB to run the script.
+- To run the script is necessary to have wrfinput and wrfbdy ready to modify it.
 
+```
+$ python download_gfas_fire.py
+```
 
 ## 2. Run main script
 
