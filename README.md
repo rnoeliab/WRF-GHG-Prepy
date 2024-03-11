@@ -99,7 +99,7 @@ $ ./download_edgar_ghg.sh
 ```
 This code will download CO, CO2 and CH4 emissions data from different sources, except for fire emissions. 
 
-Secondly.
+Secondly,
 - Run the "EDGARtoAE.py" script.
 
 ```
@@ -108,10 +108,11 @@ python EDGARtoAE.py
 
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
 
-## 2. Fire Emissions
+### C. Fire Emissions
 Preparing the Fire emissions: 
 
-To obtain fire emissions data from [GFAS website](https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-fire-emissions-gfas?tab=form), it is necessary to perform some previous steps:
+Firstly,
+- To obtain fire emissions data from [GFAS website](https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-fire-emissions-gfas?tab=form), it is necessary to perform some previous steps:
 
 ```
 1. Create ".cdsapirc" in the $HOME/ directory 
@@ -123,7 +124,9 @@ To obtain fire emissions data from [GFAS website](https://ads.atmosphere.coperni
 3. And, save.
 ```
 
-The next step is modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_gfas_fire.py)" script:
+Secondly,
+- Modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_gfas_fire.py)" script:
+
 ```
 c.retrieve(
     'cams-global-fire-emissions-gfas',
@@ -141,11 +144,14 @@ c.retrieve(
     )
     
 ```
-Then run the script in the environment "vprm-envs" :
+Finally,
+
+- Run the script in the environment "vprm" :
 
 ```
 $ python download_gfas_fire.py
 ```
+
 This information will be necessary to run the "[prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py)" script.
 
 
@@ -153,3 +159,8 @@ This information will be necessary to run the "[prep_gfas.py](https://github.com
 
 
 ## 2. Run main script
+
+```
+$ python .py
+```
+
