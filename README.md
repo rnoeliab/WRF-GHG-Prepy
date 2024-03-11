@@ -22,15 +22,17 @@ Secondly,
 - git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
 ```
 
-Next, let's go to [pys](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys) directory:
-- cd  Inputs-WRF-VPRM/pys/ 
+Thirdly,
 
-Every time we execute a python script we must be in the **"vprm-envs"** environment, therefore, we have to perform this step before starting to run the WRF-VPRM preprocessing.
+- Run the scripts from the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/)" directory, following the following sequence:
+
+**NOTE**
+Every time we execute a python script we must be in the **"vprm"** environment, therefore, we have to perform this step BEFORE starting to run the WRF-VPRM preprocessing.
 
 ```
 a. Have Anaconda installed (https://github.com/rnoeliab/Installing_anaconda)
 b. conda env create -f environment.yml
-c. conda activate vprm-envs 
+c. conda activate vprm 
 ```
 
 ## 1. Biogenic Emissions
@@ -149,3 +151,6 @@ This information will be necessary to run the "[prep_gfas.py](https://github.com
 
 
 ## 4. Background Fields
+
+
+## 2. Run main script
