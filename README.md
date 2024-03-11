@@ -88,21 +88,22 @@ VPRM_input_LSWI_MIN_2022.nc
 VPRM_input_VEG_FRA_2022.nc
 ```
 
-## 2. Anthropogenic Emissions
+### B. Anthropogenic Emissions
 Preparing the Anthropogenic emissions: 
 
-Check if the "download_edgar_ghg.sh" script is ready to be executed:
+Firstly, 
+- Check if the "download_edgar_ghg.sh" script is ready to be executed:
 ```
 $ chmod +x download_edgar_ghg.sh
 $ ./download_edgar_ghg.sh
 ```
-This code will download CO, CO2 and CH4 emissions data from different sources, except for fire emissions. The next step is to run the python script "EDGARtoAE.py". To do this step, we must take into account some points:
+This code will download CO, CO2 and CH4 emissions data from different sources, except for fire emissions. 
+
+Secondly.
+- Run the "EDGARtoAE.py" script.
 
 ```
-a. Have Anaconda installed ([Installing Anaconda](https://github.com/rnoeliab/Installing_anaconda))
-b. conda env create -f environment.yml
-c. conda activate vprm-envs 
-d. python EDGARtoAE.py
+python EDGARtoAE.py
 ```
 
 This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
