@@ -35,13 +35,15 @@ b. conda env create -f environment.yml
 c. conda activate vprm 
 ```
 
-## 1. Biogenic Emissions
+### A. Biogenic Emissions
 
 This processing is divided into two parts: For the Kaplan model and for the VPRM code:
 
-### 1.1. Kaplan model - Biogenic Methane
+#### A1. Kaplan model - Biogenic Methane
 
-For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready and also download the soil temperature data provided by ERA5 model, using the following step:
+- For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready, these are provided by this repository.
+
+- Download the soil temperature data provided by ERA5 model, this is using the following step:
 
 ```
 1. Create a user, log in and read How to use the CDS API:
@@ -54,16 +56,14 @@ For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.co
    url: https://cds.climate.copernicus.eu/api/v2
    key: YOUR KEY
 4. And, save.
-```
 
-Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script to obtain soil temperature data for the appropriate **year** and over our **study area**.
+5. Run the [download_era5_soiltemperature.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/download_era5_soiltemperature.py) script to obtain soil temperature data for the appropriate **year** and over our **study area**.
 
-```
 $ python download_era5_soiltemperature.py
 ```
 
 **NOTE**  
-Don't forget that it must be run within the vprm-envs environment
+Don't forget that it must be run within the vprm environment
 
 **READ HERE**
 After carrying out these procedures, we are going to generate three files (see the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio) directory), these files will be read by these three scripts:
@@ -74,7 +74,7 @@ After carrying out these procedures, we are going to generate three files (see t
 
 And, these scripts are within the WRF-VPRM-Prepy code
 
-### 1.2. VPRM code
+#### A2. VPRM code
 
 Here, we first need to get some files ready:
 
