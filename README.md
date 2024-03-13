@@ -112,8 +112,9 @@ Now, for wetchart:
 - To download Wetland Methane Emissions data (WetCHARTs v1.3.1) it is necessary to enter the "[CMS: Global 0.5-deg Wetland Methane Emissions and Uncertainty](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1915)" website, sign-in and download monthly data from 2001 to 2019. For this case, we have chosen the model = 2913. For more information click on "[User Guide](https://daac.ornl.gov/CMS/guides/MonthlyWetland_CH4_WetCHARTs.html)"
 
 ```
-Here is an example of how file names should be saved:
+Here is an example of how file names should be saved in the wetchart directory:
 
+"../../input/anthr_ghg/wetchart/"
 wchts_v1-3-1_model_2913_global_wet_ch4_monthly-2009.nc
 ```
 
