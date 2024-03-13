@@ -65,12 +65,13 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within the vprm environment
 
-- The files, in [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/), have to be ready to run the following scripts, which are located in the main script:
+The files in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/) directoy, have to be ready to run the following scripts (located in the main script) :
 
 	- [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
 	- [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
 	- [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
 
+These scripts will be run at the end of processing...
 
 #### A2. VPRM code
 
@@ -170,9 +171,14 @@ This information will be necessary to run the "[prep_gfas.py](https://github.com
 - To obtain CO2 and CH4 data from background source, let's go to install MATLAB to run the script.
 - To run the script is necessary to have wrfinput and wrfbdy ready to modify it.
 
+
+
+
 ```
 $ python download_gfas_fire.py
 ```
+
+
 
 ## 2. Run main script
 
