@@ -189,11 +189,13 @@ This preprocessing is based on downloading information on the global concentrati
 
 >> python calculate_CAMS_interpolation_indices.py
 
-3.
+3. 
+
+>> python prep_initial_cond.py
 
 4.
 
-python 
+>> python prep_boundary_cond.py 
 
 ```
 
