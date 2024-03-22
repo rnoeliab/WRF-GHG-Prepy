@@ -10,15 +10,10 @@ This module provides different preprocessing to prepare the different emissions 
 
 <dt>I. Run the scripts found in the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/") directory<dt>
 
+<dt>II. Run the scripts found in the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/")" directory<dt>
 
-II. Run the scripts found in the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/")" directory;
+<dt>III. Finally run the script "[run_main.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/run_main.py")"<dt>
 
-III. Finally run the script "[run_main.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/run_main.py")"
-
-<ul>
-
-<li>Line 2</li>
-</ul>
 
 ## 1. Preparing external data !!!
 
