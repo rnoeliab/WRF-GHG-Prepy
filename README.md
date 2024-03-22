@@ -19,25 +19,20 @@ This module provides different preprocessing to prepare the different emissions 
 
 Here, we are using the WRF-VPRM v4.2.1 model:
 
-* Firstly - Clone this repository in a linux/windows terminal and create an environment to work this module (There is an example in the [input](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/) directory):
+* Firstly - clone this repository in a linux/windows terminal and create an environment to work this module (there is an example in the [input](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/) directory):
 
 ```
 >> git clone https://github.com/rnoeliab/WRF-VPRM-Prepy.git
 ```
 
-* Secondly -  Save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
+* Secondly - save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
 
 
-* Thirdly - Run the scripts from the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/)" directory, following the following sequence:
+* Thirdly - inside the [libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/) directory, there are some scripts that must be executed depending on the following sequence:
 
 **NOTE**
-Every time we execute a python script we must be in the **"vprm"** environment, therefore, we have to perform this step BEFORE starting to run the WRF-VPRM preprocessing.
+Every time we execute a python script we must be within our created environment;
 
-```
-a. Have Anaconda installed (https://github.com/rnoeliab/Installing_anaconda)
-b. conda env create -f environment.yml
-c. conda activate vprm 
-```
 
 ### A. Biogenic Emissions
 
