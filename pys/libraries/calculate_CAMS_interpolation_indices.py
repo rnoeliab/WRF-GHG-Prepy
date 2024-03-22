@@ -72,11 +72,11 @@ def short_dist(latlon1,latlon2):
     return d2km
 
 # Set directory and file paths
-cams_path   = '/home/noelia/git-nonna/WRF-VPRM-Prepy-example/input/bck_ghg/unzips/';
-geo_em_path = '/home/noelia/git-nonna/WRF-VPRM-Prepy-example/input/wrf_inputs/4d/';
+cams_path   = '../../input/bck_ghg/CAMS/unzips/';
+geo_em_path = '../../input/wrf_inputs/';
 
 # Specify output file
-output_file = '/home/noelia/git-nonna/WRF-VPRM-Prepy-example/input/bck_ghg/matlab_original/cal_indices/results/interp_indices_4d.txt';
+output_file = '../../bck_ghg/interp_indices.txt';
 
 filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
 

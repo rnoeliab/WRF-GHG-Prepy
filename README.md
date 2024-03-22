@@ -180,8 +180,29 @@ This preprocessing is based on downloading information on the global concentrati
  
 #### CAMS -- (CH4 and CO)
 
+
+**Modifications:**
+
+<dt>In "download_CAMS_with_cmmd.py" : put your period <dt>
 ```
-1. Download the global CO and CH4 data for a specific period (that script must be modified in the period)
+year        = '2022'
+monthi      = '08'
+monthe      = '08'
+```
+<dt>In "calculate_CAMS_interpolation_indices.py" : put the first day of your simulation ("20220801") and your domains.<dt>
+```
+filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
+requested_domains = [ "d01", "d02","d03","d04"];
+```
+<dt>In "prep_initial_cond.py" : <dt>
+```
+```
+<dt>In "python prep_boundary_cond.py " : <dt>
+
+
+
+```
+1. Download the global CO and CH4 data for a specific period
 
 >> python download_CAMS_with_cmmd.py
 
@@ -200,9 +221,6 @@ This preprocessing is based on downloading information on the global concentrati
 ```
 
 
-Para los gases de CH4 y CO la d
-- To obtain CO2 and CH4 data from background source, let's go to install MATLAB to run the script.
-- To run the script is necessary to have wrfinput and wrfbdy ready to modify it.
 
 #### NOAA data  -- (CO2)
 
