@@ -40,7 +40,7 @@ This processing is divided into two parts: The Kaplan model and VPRM code:
 
 #### A1. Kaplan model - Biogenic Methane (CH4)
 
-Three data are necessary here (CPOOL and wetland maps, and soil temperature data). The first two are provided by this repository and the latest data is downloaded from the Copernicus platform.
+Three data are necessary here: CPOOL and wetland maps, and soil temperature data). The first two are provided by this repository and the latest data is downloaded from the Copernicus platform.
 
 1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
 2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
@@ -66,7 +66,7 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within our created environment
 
-The files in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/) directoy, have to be ready to run the following scripts (located in the main script) :
+These files, saved in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/) directory, are necessary to run the following scripts (located in the main script) :
 
 - [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
 - [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
