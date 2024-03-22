@@ -6,10 +6,12 @@ The Weather Research and Forecasting (WRF) Model is a state of the art mesoscale
 
 This module provides different preprocessing to prepare the different emissions inventories (from CO, CO2 and CH4) that will be necessary to run the WRF-GHG (or WRF-VPRM) model (chem_opt = 17). 
 
-**Take into account:**\
+**Take into account:**
 
 I.  Run the scripts found in the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/") directory
+##
 II. Run the scripts found in the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/")" directory
+##
 III. Finally run the script "[run_main.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/run_main.py")"
 
 
