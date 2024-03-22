@@ -44,8 +44,8 @@ for sp in sps:
 nowpath = os.getcwd()
 print("Current directory:", nowpath)
 os.chdir('../..')
-zip = os.getcwd() + '/input/bck_ghg/zips/'
-newpath = os.getcwd() + '/input/bck_ghg/unzips/'
+zip = os.getcwd() + '/input/bck_ghg/CAMS/zips/'
+newpath = os.getcwd() + '/input/bck_ghg/CAMS/unzips/'
 print("New directory:", newpath)
 os.chdir(newpath)
 

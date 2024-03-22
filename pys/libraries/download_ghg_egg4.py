@@ -8,7 +8,7 @@ species    = sys.argv[3]
 
 print("Current directory:", os.getcwd())
 os.chdir('../..')
-newpath = os.getcwd() + '/input/bck_ghg/zips/'
+newpath = os.getcwd() + '/input/bck_ghg/CAMS/zips/'
 print("New directory:", newpath)
 os.chdir(newpath)
 
