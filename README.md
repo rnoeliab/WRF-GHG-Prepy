@@ -129,8 +129,7 @@ This information will be necessary to run the [prep_edgar.py](https://github.com
 ### C. Fire Emissions
 Preparing the Fire emissions: 
 
-Firstly,
-- To obtain fire emissions data from [GFAS website](https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-fire-emissions-gfas?tab=form), it is necessary to perform some previous steps:
+* Firstly - to obtain fire emissions data from [GFAS website](https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-fire-emissions-gfas?tab=form), it is necessary to perform some previous steps:
 
 ```
 1. Create ".cdsapirc" in the $HOME/ directory 
@@ -142,8 +141,7 @@ Firstly,
 3. And, save.
 ```
 
-Secondly,
-- Modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/libraries/download_gfas_fire.py)" script:
+* Secondly - modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/libraries/download_gfas_fire.py)" script:
 
 ```
 c.retrieve(
@@ -162,9 +160,8 @@ c.retrieve(
     )
     
 ```
-Finally,
 
-- Run the script in the environment "vprm" :
+* Thirdly - run the script in our created environment :
 
 ```
 $ python download_gfas_fire.py
