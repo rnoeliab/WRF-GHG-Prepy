@@ -84,5 +84,6 @@ for i,d in enumerate(days):
     cmmd = 'cdo -merge -selday,'+str(i+1)+' ' + outputfilec +'.nc -selday,'+str(i+1)+' '+outputfilem + '.nc ' + 'CAMS_GACF_large_co_ch4_'+year+monthi+str(d)+'.nc'
     subprocess.call(cmmd,shell=True)
     print('CAMS_GACF_large_co_ch4_'+year+monthi+str(d)+'.nc','was created')
-    print('Processing finished')
+
+print('Processing finished')
 

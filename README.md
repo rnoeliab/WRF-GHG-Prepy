@@ -181,10 +181,16 @@ This preprocessing is based on downloading information on the global concentrati
 #### CAMS -- (CH4 and CO)
 
 ```
-1. Download the CO and CH4 data 
+1. Download the global CO and CH4 data for a specific period (that script must be modified in the period)
 
-2.
+>> python download_CAMS_with_cmmd.py
+
+2. Calculate the interpolation indices 
+
+>> python calculate_CAMS_interpolation_indices.py
+
 3.
+
 4.
 
 python 
