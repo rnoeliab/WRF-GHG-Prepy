@@ -205,7 +205,11 @@ requested_domains = [ "d01", "d02","d03","d04"];
 
 <dt>In "python prep_boundary_cond.py " : <dt>
 
+```
+```
 
+
+Then,
 
 ```
 1. Download the global CO and CH4 data for a specific period
