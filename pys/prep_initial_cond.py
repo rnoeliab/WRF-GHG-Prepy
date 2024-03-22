@@ -15,15 +15,15 @@ import scipy.io
 import os
 
 #Setting important paths to files and directories
-wrfinput_dir_path = '../input/wrf_inputs/4d/quim_py/'
-CAMS_data_dir_path   ='../input/bck_ghg/'
-CAMS_interpolation_indices_file_path = os.path.join(CAMS_data_dir_path,'matlab_original/cal_indices/results/interp_indices_4d.txt.npz')
-IFS_L137_ab_file  = os.path.join(CAMS_data_dir_path,'index/ecmwf_coeffs_L137.csv')
+wrfinput_dir_path = '../input/wrf_inputs/'
+CAMS_data_dir_path   ='../input/bck_ghg/CAMS/unzips/'
+CAMS_interpolation_indices_file_path = '../input/bck_ghg/interp_indices.txt.npz'
+IFS_L137_ab_file  = '../input/bck_ghg/ecmwf_coeffs_L137.csv')
 
 requested_domains = [ "d01", "d02","d03","d04"]
-sim_time       = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
+sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
 
-dates          = pd.to_datetime(sim_time[0]).strftime('%Y-%m-%d')
+dates           = pd.to_datetime(sim_time[0]).strftime('%Y-%m-%d')
 year            = pd.to_datetime(sim_time[0]).strftime('%Y')
 month           = pd.to_datetime(sim_time[0]).strftime('%m')
 day             = pd.to_datetime(sim_time[0]).strftime('%d')

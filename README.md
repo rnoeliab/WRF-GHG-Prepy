@@ -198,9 +198,11 @@ filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
 requested_domains = [ "d01", "d02","d03","d04"];
 ```
 
-<dt>In "prep_initial_cond.py" : <dt>
+<dt>In "prep_initial_cond.py" : put your period and domains.<dt>
 
 ```
+requested_domains = [ "d01", "d02","d03","d04"]
+sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
 ```
 
 <dt>In "python prep_boundary_cond.py " : <dt>
