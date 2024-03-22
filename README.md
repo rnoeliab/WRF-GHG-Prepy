@@ -19,20 +19,16 @@ This module provides different preprocessing to prepare the different emissions 
 
 Here, we are using the WRF-VPRM v4.2.1 model:
 
-Firstly,
+⋅⋅* Firstly - Clone this repository in a linux/windows terminal and create an environment to work this module (There is an example in the [input](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/) directory):
 
-- Save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
-
-Secondly,
-
-- Clone this repository in a linux/windows terminal:
 ```
-- git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
+>> git clone "[https://github.com/rnoeliab/Inputs-WRF-VPRM.git](https://github.com/rnoeliab/Inputs-WRF-VPRM.git)"
 ```
 
-Thirdly,
+⋅⋅* Secondly -  Save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
 
-- Run the scripts from the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/)" directory, following the following sequence:
+
+⋅⋅* Thirdly - Run the scripts from the "[libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/)" directory, following the following sequence:
 
 **NOTE**
 Every time we execute a python script we must be in the **"vprm"** environment, therefore, we have to perform this step BEFORE starting to run the WRF-VPRM preprocessing.
