@@ -31,18 +31,20 @@ Here, we are using the WRF-VPRM v4.2.1 model:
 * Thirdly - inside the [libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/) directory, there are some scripts that must be executed depending on the following sequence:
 
 **NOTE**
-Every time we execute a python script we must be within our created environment;
 
+<dt>Every time we execute a python script we must be within our created environment.<dt>
 
 ### A. Biogenic Emissions
 
-This processing is divided into two parts: For the Kaplan model and for the VPRM code:
+This processing is divided into two parts: The Kaplan model and VPRM code:
 
-#### A1. Kaplan model - Biogenic Methane
+#### A1. Kaplan model - Biogenic Methane (CH4)
 
-- For CH4 fields, we need to have the CPOOL ([lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)) and wetland ([global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)) maps ready, these are provided by this repository.
+Three data are necessary here (CPOOL and wetland maps, and soil temperature data). The first two are provided by this repository and the latest data is downloaded from the Copernicus platform.
 
-- Download the soil temperature data provided by ERA5 model, this is using the following step:
+1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
+2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
+3. Download the soil temperature data provided by ERA5 model, this is using the following step:
 
 ```
 1. Create a user, log in and read How to use the CDS API:
@@ -62,7 +64,7 @@ $ python download_era5_soiltemperature.py
 ```
 
 **NOTE**  
-Don't forget that it must be run within the vprm environment
+Don't forget that it must be run within our created environment
 
 The files in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/) directoy, have to be ready to run the following scripts (located in the main script) :
 
