@@ -93,24 +93,29 @@ VPRM_input_VEG_FRA_2022.nc
 ### B. Anthropogenic Emissions
 Preparing the Anthropogenic emissions (EDGAR + Wetchart): 
 
-Firstly, 
-- Check if the "download_edgar_ghg.sh" script is ready to be executed:
+#### EDGAR -- GHG emissions 
+
+* Firstly - check if the "download_edgar_ghg.sh" script is ready to be executed:
 ```
 $ chmod +x download_edgar_ghg.sh
 $ ./download_edgar_ghg.sh
 ```
 This code will download CO, CO2 and CH4 emissions data from different sources, except for fire emissions. 
 
-Secondly,
-- Run the "EDGARtoAE.py" script.
-
+* Secondly - run the "EDGARtoAE.py" script.
 ```
 python EDGARtoAE.py
 ```
 
-Now, for wetchart:
+#### Wetchart -- Global 0.5-deg Wetland Methane Emissions
 
-- To download Wetland Methane Emissions data (WetCHARTs v1.3.1) it is necessary to enter the "[CMS: Global 0.5-deg Wetland Methane Emissions and Uncertainty](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1915)" website, sign-in and download monthly data from 2001 to 2019. For this case, we have chosen the model = 2913. For more information click on "[User Guide](https://daac.ornl.gov/CMS/guides/MonthlyWetland_CH4_WetCHARTs.html)"
+* Firstly - to download Wetland Methane Emissions data (WetCHARTs v1.3.1) it is necessary to enter the "[CMS: Global 0.5-deg Wetland Methane Emissions and Uncertainty](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1915)" website,
+
+* Secondly - sign-in
+
+* Thirdly - download monthly data from 2001 to 2019. 
+
+For this case, we have chosen the model = 2913. For more information click on "[User Guide](https://daac.ornl.gov/CMS/guides/MonthlyWetland_CH4_WetCHARTs.html)"
 
 ```
 Here is an example of how file names should be saved in the wetchart directory:
@@ -119,8 +124,7 @@ Here is an example of how file names should be saved in the wetchart directory:
 wchts_v1-3-1_model_2913_global_wet_ch4_monthly-2009.nc
 ```
 
-
-This information will be necessary to run the "[prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py)" script.
+This information will be necessary to run the [prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py) script.
 
 ### C. Fire Emissions
 Preparing the Fire emissions: 
