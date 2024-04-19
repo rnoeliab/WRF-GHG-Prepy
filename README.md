@@ -32,7 +32,7 @@ Here, we are using the WRF-VPRM v4.2.1 model:
 
 **NOTE**
 
-<dt>Every time we execute a python script we must be within our created environment.<dt>
+<dt>Every time we execute a python script we must be within our created environment (see [WRF-VPRM-PrepPy Code](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input)).<dt>
 
 ### A. Biogenic Emissions
 
