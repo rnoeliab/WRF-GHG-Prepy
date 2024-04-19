@@ -8,11 +8,11 @@ This module provides different preprocessing to prepare the different emissions 
 
 **Take into account:**
 
-<dt>I. Run the scripts found in the "libraries" directory.<dt>
+<dt>I. Firstly, run the scripts found in the "pys/libraries" directory.<dt>
 
-<dt>II. Run the scripts found in the "pys" directory.<dt>
+<dt>II. Secondly, run the scripts found in the "pys/prep" directory.<dt>
 
-<dt>III. Finally run the "run_main.py" script.<dt>
+<dt>III. Finally run the "WRF_Chem_PrepPy.py" script.<dt>
 
 
 ## 1. Preparing external data !!!
