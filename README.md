@@ -28,7 +28,7 @@ Here, we are using the WRF-VPRM v4.2.1 model:
 * Secondly - save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
 
 
-* Thirdly - inside the [libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/) directory, there are some scripts that must be executed depending on the following sequence:
+* Thirdly - run the scripts found inside the [libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/) directory, depending on the following sequence:
 
 **NOTE**
 
