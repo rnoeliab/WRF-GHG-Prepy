@@ -172,7 +172,7 @@ $ python download_gfas_fire.py
 This information will be necessary to run the [prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py) script.
 
 
-### D. Background Fields
+## 1. Run the Background Fields
 
 To prepare the chemical initial and boundary conditions that are necessary to feed the WRF-GHG model, specifically for CO, CO2 and CH4, some steps must be carried out.
 
