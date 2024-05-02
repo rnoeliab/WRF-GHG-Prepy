@@ -183,9 +183,9 @@ $ python WRF_Chem_PrepPy.py
 This script will generate the input files for the WRF-GHG model (for all domains):
 
 ```
-wrfchemi*
-wrffire*
-vprm_input*
+wrfchemi_d0<domain>_<date>*
+wrffire_d0<domain>_<date>*
+vprm_input_d0<domain>_<date>*
 ```
 
 ## 1. Run the Background Fields
