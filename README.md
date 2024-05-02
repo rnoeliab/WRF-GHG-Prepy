@@ -136,15 +136,15 @@ hvs:
 modis:
     - 'username'
     - 'pwd'
-
 ```
 
-Both save in [sat_data_download](https://github.com/tglauch/pyVPRM_examples/tree/main/sat_data_download)
+<dt>Both save in [sat_data_download](https://github.com/tglauch/pyVPRM_examples/tree/main/sat_data_download) and run:<dt>
 
-<dt>Run:<dt>
+
 ```
 python download_satellite_images.py --year 2022 --login_data logins_draft.yaml --config config.yaml 
 ```
+
 ##### A.2.4 Run vprm_preprocessor_new.py
 
 ```
