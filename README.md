@@ -192,10 +192,14 @@ monthi      = '08'
 monthe      = '08'
 ```
 
-This script is linked with the files [submit_cds_ads_download.sh]("https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/submit_cds_ads_download.sh") and [download_ghg_egg4.py]("https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/download_ghg_egg4.py").
+This script is linked with the files [submit_cds_ads_download.sh](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/submit_cds_ads_download.sh) and [download_ghg_egg4.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/download_ghg_egg4.py).
 
-Finally, run:
-<dt> python download_CAMS_with_cmmd.py <dt>
+
+```
+Finally, run: 
+python download_CAMS_with_cmmd.py
+monthe      = '08'
+```
 
 
 **1B:**
