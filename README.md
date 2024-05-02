@@ -106,26 +106,50 @@ pip install git+https://github.com/tglauch/pyVPRM.git
 
 ##### A.2.3 Land Cover map download
 
-On the website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
+On the [Global Land Cover - Copernicus](https://lcviewer.vito.be/2019) website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
 
 ![all text](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/imags/copernicus_tiles.png)
 
 
-```
-Global Land Cover - Copernicus:  https://lcviewer.vito.be/2019
-```
-
-
-
 ##### A.2.4 MODIS download
 
+To download the necessary MODIS images, take into account the following:
 
+<dt> Create a config.yaml and add <dt>
 
+```
+years: 
+ - 2022
+satellite: modis
+sat_image_path: ./data/modis/
+hvs:
+ - [9,7]
+ - [9,8]
+ - [9,9]
+ - [9,10]
+ - [10,7]
+```
 
+<dt> Edit logins_draft.yaml <dt>
+
+```
+modis:
+    - 'username'
+    - 'pwd'
+
+```
+
+Both save in [sat_data_download](https://github.com/tglauch/pyVPRM_examples/tree/main/sat_data_download)
+
+<dt>Run:<dt>
+```
+python download_satellite_images.py --year 2022 --login_data logins_draft.yaml --config config.yaml 
+```
 ##### A.2.4 Run vprm_preprocessor_new.py
 
-
-
+```
+python vprm_preprocessor_new.py --year 2022 --config ./config/preprocessor_config.yaml
+```
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
