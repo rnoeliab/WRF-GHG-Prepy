@@ -138,7 +138,7 @@ modis:
     - 'pwd'
 ```
 
-<dt>Both save in [sat_data_download](https://github.com/tglauch/pyVPRM_examples/tree/main/sat_data_download) and run:<dt>
+Both save in [sat_data_download](https://github.com/tglauch/pyVPRM_examples/tree/main/sat_data_download) and run:
 
 
 ```
@@ -146,6 +146,7 @@ python download_satellite_images.py --year 2022 --login_data logins_draft.yaml -
 ```
 
 ##### A.2.4 Run vprm_preprocessor_new.py
+
 
 ```
 python vprm_preprocessor_new.py --year 2022 --config ./config/preprocessor_config.yaml
