@@ -196,23 +196,26 @@ This script is linked with the files [submit_cds_ads_download.sh](https://github
 
 
 ```
-Finally, run: 
-python download_CAMS_with_cmmd.py
-monthe      = '08'
+Finally, run: python download_CAMS_with_cmmd.py
 ```
 
 
-**1B:**
+**1B: Calculate CAMS Interpolation Indices**
+
+<dt>In "calculate_CAMS_interpolation_indices.py" : put the first day of your simulation ("20220801") and your domains.<dt>
 
 
-**1C:**
+**1C: Run Inicial and Boundary conditions**
+
+
+
 #### CAMS -- (CH4 and CO)
 
 
 
 
 
-<dt>In "calculate_CAMS_interpolation_indices.py" : put the first day of your simulation ("20220801") and your domains.<dt>
+
 
 ```
 filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
