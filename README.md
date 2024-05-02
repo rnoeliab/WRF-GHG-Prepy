@@ -76,9 +76,37 @@ These files, saved in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/
 
 These scripts will be run at the end of processing...
 
-#### A2. VPRM code
+#### A2. VPRM input 
 
-Here, we first need to get some files ready:
+First, we need to get some files ready. For that, go to: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples).
+
+To obtain the VPRM inputs, I recommend you to have the following steps:
+
+###### A.2.1 pyVPRM_examples install
+
+
+
+
+
+###### A.2.2 Create a environment
+
+
+
+
+###### A.2.3 land cover map download
+
+
+
+
+###### A.2.4 MODIS download
+
+
+
+
+###### A.2.4 Run vprm_preprocessor_new.py
+
+
+
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
