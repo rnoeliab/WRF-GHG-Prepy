@@ -202,7 +202,16 @@ Finally, run: python download_CAMS_with_cmmd.py
 
 **1B: Calculate CAMS Interpolation Indices**
 
-<dt>In "calculate_CAMS_interpolation_indices.py" : put the first day of your simulation ("20220801") and your domains.<dt>
+<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name <dt>
+
+```
+See lines: 81 and 85
+
+filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
+requested_domains = [ "d01", "d02","d03","d04"];
+```
+
+It is recommended to place the name of the file using the year, month and initial day "20220801", since that name is generated when the download_CAMS_with_cmmd.py script is run
 
 
 **1C: Run Inicial and Boundary conditions**
@@ -217,10 +226,7 @@ Finally, run: python download_CAMS_with_cmmd.py
 
 
 
-```
-filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
-requested_domains = [ "d01", "d02","d03","d04"];
-```
+
 
 <dt>In "prep_initial_cond.py" : put your period and domains.<dt>
 
