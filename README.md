@@ -84,26 +84,45 @@ To obtain the VPRM inputs, I recommend you to have the following steps:
 
 ##### A.2.1 pyVPRM_examples install
 
+<dt> Clone the repository <dt>
+
+```
+git clone https://github.com/tglauch/pyVPRM_examples.git
+```
+
+##### A.2.2 Create a environment
+
+Within the [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) repository, consider the steps to follow from (How to Use)[https://github.com/tglauch/pyVPRM?tab=readme-ov-file#how-to-use] to install the necessary libraries to run the [vprm_preprocessor_new.py](https://github.com/tglauch/pyVPRM_examples/blob/main/wrf_preprocessor/vprm_preprocessor_new.py)
+
+```
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+conda install -c conda-forge dask netCDF4
+conda install esmf
+conda install esmpy
+
+pip install git+https://github.com/tglauch/pyVPRM.git
+```
+
+##### A.2.3 Land Cover map download
+
+On the website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
+
+![copernicus](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/imags/copernicus_tiles.png)
+
+
+```
+Global Land Cover - Copernicus:  https://lcviewer.vito.be/2019
+```
+
+
+
+##### A.2.4 MODIS download
 
 
 
 
-###### A.2.2 Create a environment
-
-
-
-
-###### A.2.3 land cover map download
-
-
-
-
-###### A.2.4 MODIS download
-
-
-
-
-###### A.2.4 Run vprm_preprocessor_new.py
+##### A.2.4 Run vprm_preprocessor_new.py
 
 
 
