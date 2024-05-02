@@ -172,6 +172,14 @@ $ python download_gfas_fire.py
 This information will be necessary to run the [prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py) script.
 
 
+## D. Run main script
+
+```
+$ python WRF_Chem_PrepPy.py
+```
+
+
+
 ## 1. Run the Background Fields
 
 To prepare the chemical initial and boundary conditions to feed the WRF-GHG model, specifically for CO, CO2 and CH4, some steps must be carried out.
@@ -199,10 +207,9 @@ This script is linked with the files [submit_cds_ads_download.sh](https://github
 Finally, run: python download_CAMS_with_cmmd.py
 ```
 
-
 **1B: Calculate CAMS Interpolation Indices**
 
-<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name <dt>
+<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name. <dt>
 
 ```
 See lines: 81 and 85
@@ -211,71 +218,37 @@ filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
 requested_domains = [ "d01", "d02","d03","d04"];
 ```
 
-It is recommended to place the name of the file using the year, month and initial day "20220801", since that name is generated when the download_CAMS_with_cmmd.py script is run
+It is recommended to place the name of the file using the year, month and initial day ("20220801"), since that name is generated when the download_CAMS_with_cmmd.py script is run.
 
 
 **1C: Run Inicial and Boundary conditions**
 
+To start running scripts: A and B, it is recommended to have some files ready:
 
+```
+- wrfinput/wrfbdy
+- CAMS data
+- interp_indices.txt.npz
+- ecmwf_coeffs_L137.csv
+```
 
-#### CAMS -- (CH4 and CO)
+In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/prep_initial_cond.py) and [prep_boundary_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/prep_boundary_cond.py) scripts: modify the number of domains and simulation time.
 
-
-
-
-
-
-
-
-
-<dt>In "prep_initial_cond.py" : put your period and domains.<dt>
 
 ```
 requested_domains = [ "d01", "d02","d03","d04"]
 sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
 ```
 
-<dt>In "python prep_boundary_cond.py " : <dt>
-
-```
-```
-
-
-Then,
-
-```
-1. Download the global CO and CH4 data for a specific period
-
->> python download_CAMS_with_cmmd.py
-
-2. Calculate the interpolation indices 
-
->> python calculate_CAMS_interpolation_indices.py
-
-3. 
-
->> python prep_initial_cond.py
-
-4.
-
->> python prep_boundary_cond.py 
-
-```
-
+After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. Ready to run the WRF-GHG model.
 
 
 #### NOAA data  -- (CO2)
 
 
 ```
-$ python download_gfas_fire.py
-```
-
-
-
-## 2. Run main script
 
 ```
-$ python .py
-```
+
+
 
