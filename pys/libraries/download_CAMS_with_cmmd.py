@@ -38,7 +38,7 @@ for sp in sps:
         filename    = 'CAMS_GACF_large_%s_%s_%s'%(sp,target_time[date-1].date(),target_time[date].date())
         
         print("sh","submit_cds_ads_download.sh","%s"%(submit_date),"%s"%(filename),"%s"%(sp))
-    #    subprocess.call(["sh","submit_cds_ads_download.sh","%s"%(submit_date),"%s"%(filename),"%s"%(sp)])    
+        subprocess.call(["sh","submit_cds_ads_download.sh","%s"%(submit_date),"%s"%(filename),"%s"%(sp)])    
         print(" ")
         
 nowpath = os.getcwd()
