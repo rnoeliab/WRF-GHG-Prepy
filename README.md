@@ -174,11 +174,19 @@ This information will be necessary to run the [prep_gfas.py](https://github.com/
 
 ## D. Run main script
 
+After preparing all the external information and obtaining the CO, CO2 and CH4 emissions from anthropogenic, biogenic and burned sources; the [WRF_Chem_PrepPy.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/WRF_Chem_PrepPy.py) script will be executed.
+
 ```
 $ python WRF_Chem_PrepPy.py
 ```
 
+This script will generate the input files for the WRF-GHG model (for all domains):
 
+```
+wrfchemi*
+wrffire*
+vprm_input*
+```
 
 ## 1. Run the Background Fields
 
