@@ -108,7 +108,7 @@ pip install git+https://github.com/tglauch/pyVPRM.git
 
 On the website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
 
-![copernicus](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/imags/copernicus_tiles.png)
+![all text](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/imags/copernicus_tiles.png)
 
 
 ```
