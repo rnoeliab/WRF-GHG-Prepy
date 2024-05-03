@@ -78,9 +78,9 @@ These scripts will be run at the end of processing...
 
 #### A2. VPRM input 
 
-First, we need to get some files ready. For that, go to: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples).
+To get the VPRM input, we'll need to go to Theo's processing: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples).
 
-To obtain the VPRM inputs, I recommend you to have the following steps:
+<dt>Perform the following steps:<dt>
 
 ##### A.2.1 pyVPRM_examples install
 
@@ -161,8 +161,8 @@ python vprm_preprocessor_new.py --year 2022 --config ./config/preprocessor_confi
 python vprm_preprocessor_new.py --year 2023 --config ./config/preprocessor_config.yaml --n_cpus=32 --chunk_x=4 --chunk_y=4
 ```
 
-
-For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
+Finally,
+<dt>This processing will generate the following files:<dt>
 
 ```
 VPRM_input_EVI_2022.nc
@@ -173,6 +173,8 @@ VPRM_input_LSWI_MAX_2022.nc
 VPRM_input_LSWI_MIN_2022.nc
 VPRM_input_VEG_FRA_2022.nc
 ```
+
+These files must be saved in: [bio_ghg](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input/bio_ghg)
 
 ### B. Anthropogenic Emissions
 Preparing the Anthropogenic emissions (EDGAR + Wetchart): 
