@@ -147,10 +147,20 @@ python download_satellite_images.py --year 2022 --login_data logins_draft.yaml -
 
 ##### A.2.4 Run vprm_preprocessor_new.py
 
+Before running the vprm_preprocessor_new.py, it is necessary to be in the created environment. Don't forget to edit the [preprocessor_config.yaml](https://github.com/tglauch/pyVPRM_examples/blob/main/wrf_preprocessor/config/preprocessor_config.yaml), verify the data to be used (MODIS and copernicus). Finally, run:
 
 ```
 python vprm_preprocessor_new.py --year 2022 --config ./config/preprocessor_config.yaml
 ```
+
+**Note:**
+
+<dt>If the domains to be run are large, it is recommended to use chunks (Ex: n_chunks = 4),<dt>
+
+```
+python vprm_preprocessor_new.py --year 2023 --config ./config/preprocessor_config.yaml --n_cpus=32 --chunk_x=4 --chunk_y=4
+```
+
 
 For CO2 fields, it is necessary to obtain EVI (daily, maximum and minimum), LSWI (daily, maximum and minimum) and vegetation fraction data. This data was obtained through preprocessing, by Theo.
 
