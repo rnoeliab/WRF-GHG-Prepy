@@ -286,6 +286,7 @@ This preprocessing is based on downloading information on the global concentrati
 
 <dt>In "download_CAMS_with_cmmd.py" : modify your period <dt>
 
+<dt> Here I am leaving an example: Run date, 01-31 - August - 2022, for 4 domains.<dt>
 ```
 year        = '2022'
 monthi      = '08'
@@ -301,7 +302,7 @@ Finally, run: python download_CAMS_with_cmmd.py
 
 **1B: Calculate CAMS Interpolation Indices**
 
-<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name. <dt>
+<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name ("filein"). <dt>
 
 ```
 See lines: 81 and 85
@@ -329,7 +330,7 @@ In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/p
 
 ```
 requested_domains = [ "d01", "d02","d03","d04"]
-sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
+sim_time          = '2022-08-01 00:00:00','2022-08-31 23:00:00'       # check this!!
 ```
 
 After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. Ready to run the WRF-GHG model.
