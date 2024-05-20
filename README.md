@@ -287,6 +287,7 @@ This preprocessing is based on downloading information on the global concentrati
 <dt>In "download_CAMS_with_cmmd.py" : modify your period <dt>
 
 <dt> Here I am leaving an example: Run date, 01-31 - August - 2022, for 4 domains.<dt>
+
 ```
 year        = '2022'
 monthi      = '08'
