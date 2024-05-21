@@ -75,9 +75,6 @@ def short_dist(latlon1,latlon2):
 cams_path   = '../../input/bck_ghg/CAMS/unzips/';
 geo_em_path = '../../input/wrf_inputs/';
 
-# Specify output file
-output_file = '../../bck_ghg/interp_indices.txt';
-
 filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
 
 print('Lat Lon coordinates for CAMS read from file:\n %s'%filein);
@@ -115,7 +112,14 @@ for current_domain_idx in requested_domains:
   variable_name = 'cams_indices_' + current_domain_idx
   globals()[variable_name] = indices
 
+
+# Specify output file
+nowpath = os.getcwd()
+print("Current directory:", nowpath)
+os.chdir("../..")
+output_file = os.getcwd() + '/input/bck_ghg/';
+
 print(f'Saving output index matrices in into: {output_file}')
 variables = [name for name in globals().keys() if name.startswith('cams_indices_')]
-np.savez(output_file, **{var: globals()[var] for var in variables})
+np.savez(output_file+'interp_indices.txt', **{var: globals()[var] for var in variables})
 
