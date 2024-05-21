@@ -174,7 +174,7 @@ VPRM_input_LSWI_MIN_2022.nc
 VPRM_input_VEG_FRA_2022.nc
 ```
 
-These files must be saved in: [bio_ghg](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input/bio_ghg)
+These files must be saved in: [co2_bio](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input/bio_ghg/co2_bio)
 
 ### B. Anthropogenic Emissions
 Preparing the Anthropogenic emissions (EDGAR + Wetchart): 

@@ -22,8 +22,9 @@ pos            = '.nc'
 projection_wrf = 'Lambert Conformal'
 
 ch4_bio_p      = '../input/bio_ghg/ch4_bio/'
+co2_bio_p      = '../input/bio_ghg/co2_bio/'
 fire_p         = '../input/fire_ghg/'
-anthr_p      = '../input/anthr_ghg/'
+anthr_p        = '../input/anthr_ghg/'
 
 output_reg     = '../output/'
 
@@ -74,6 +75,45 @@ for i,j in enumerate(range(domains),start=1):
     print('===================================')
     print('FINISHED WITH DOMAIN %s'%(str(dom)))
     print('===================================')  
+
+
+/home/nonna/git-nonna/WRF-VPRM-Prepy-Example/pys/dd/Join_vprm_input.py
+'''
+A1. Join CO, CO2 and CH4 data from biogenic emissions :
+
+  - Join_vprm_input.py
+'''
+for i,j in enumerate(range(domains),start=1):
+    
+    dom              = i
+    wrf_inp_p        = wrf_inp  + str(i)
+    wrf_geo_p        = wrf_geos  + str(i) + pos
+
+    ## join CH4 and CO2 biogenic dataset
+    
+    ######### READ CH4 BIO -- Kaplan inventory
+    cpoolp  = ch4_bio_p +'CPOOL_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
+    tannp   = ch4_bio_p + 'T_ANN_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
+    wetmapp = ch4_bio_p + 'WETMAP_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
+
+    ######### READ CO2 BIO ---- prec vprm    
+    vprm_inp  = co2_bio_p 
+    evi_minp  = vprm_inp + 'd0%s/VPRM_input_EVI_MIN_%s.nc'%(dom,pd.to_datetime(dates).year)
+    evi_maxp  = vprm_inp + 'd0%s/VPRM_input_EVI_MAX_%s.nc'%(dom,pd.to_datetime(dates).year)
+    evip      = vprm_inp + 'd0%s/VPRM_input_EVI_%s.nc'%(dom,pd.to_datetime(dates).year)
+    lswi_minp = vprm_inp + 'd0%s/VPRM_input_LSWI_MIN_%s.nc'%(dom,pd.to_datetime(dates).year)
+    lswi_maxp = vprm_inp + 'd0%s/VPRM_input_LSWI_MAX_%s.nc'%(dom,pd.to_datetime(dates).year)
+    lswip     = vprm_inp + 'd0%s/VPRM_input_LSWI_%s.nc'%(dom,pd.to_datetime(dates).year)
+    vegfrap   = vprm_inp + 'd0%s/VPRM_input_VEG_FRA_%s.nc'%(dom,pd.to_datetime(dates).year)
+        
+    #print(datetime.now())
+    %run -i Join_vprm_input.py
+    #print(datetime.now())   
+    
+    print('===================================')
+    print('FINISHED WITH DOMAIN %s'%(str(dom)))
+    print('===================================')
+
 
 '''
 B. Preparing the data for the EDGAR and Wetchart (anthropogenic emissions) -> CH4, CO2, CO
