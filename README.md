@@ -282,11 +282,13 @@ This preprocessing is based on downloading information on the global concentrati
 
 #### Steps:
 
+<dt> Here I am leaving an example: <dt>
+
+<dt> Run date, 01-15 - August - 2022, for 4 domains.<dt>
+
 **1A: Download CAMS data for our period**
 
 <dt>In "download_CAMS_with_cmmd.py" : modify your period <dt>
-
-<dt> Here I am leaving an example: Run date, 01-31 - August - 2022, for 4 domains.<dt>
 
 ```
 year        = '2022'
@@ -331,8 +333,10 @@ In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/p
 
 ```
 requested_domains = [ "d01", "d02","d03","d04"]
-sim_time          = '2022-08-01 00:00:00','2022-08-31 23:00:00'       # check this!!
+sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
 ```
+
+<dt> The start and end data in the sim_time should be similar to "namelist.input". CAMS data will be stored in both the wrfinput and wrfbdy files <dt>
 
 After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. Ready to run the WRF-GHG model.
 
