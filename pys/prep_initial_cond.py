@@ -18,7 +18,7 @@ import os
 wrfinput_dir_path = '../input/wrf_inputs/'
 CAMS_data_dir_path   ='../input/bck_ghg/CAMS/unzips/'
 CAMS_interpolation_indices_file_path = '../input/bck_ghg/interp_indices.txt.npz'
-IFS_L137_ab_file  = '../input/bck_ghg/ecmwf_coeffs_L137.csv')
+IFS_L137_ab_file  = '../input/bck_ghg/ecmwf_coeffs_L137.csv'
 
 requested_domains = [ "d01", "d02","d03","d04"]
 sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
@@ -35,8 +35,8 @@ simstart_time = datetime.strptime(wrfinput['Times'].values[0].decode("utf-8"), "
 simstart_time = simstart_time.strftime("%Y%m%d")
 
 #Based on the initial day, set the CAMS filenames to be read.
-path_CAMS_ml_file   = os.path.join(CAMS_data_dir_path+'unzips/CAMS_GACF_large_co_ch4_'+simstart_time+'.nc')
-path_CAMS_lnsp_file = os.path.join(CAMS_data_dir_path+'unzips/CAMS_GACF_large_co_ch4_'+simstart_time+'.nc')
+path_CAMS_ml_file   = os.path.join(CAMS_data_dir_path+'CAMS_GACF_large_co_ch4_'+simstart_time+'.nc')
+path_CAMS_lnsp_file = os.path.join(CAMS_data_dir_path+'CAMS_GACF_large_co_ch4_'+simstart_time+'.nc')
 
 #Reading a and b parameters from the model config L137
 rawin=np.genfromtxt(IFS_L137_ab_file,delimiter=",",skip_header=1,dtype='<U25', encoding=None)

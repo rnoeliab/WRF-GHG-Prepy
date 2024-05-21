@@ -14,10 +14,10 @@ import scipy.io
 import os,time
 
 #Setting important paths to files and directories
-wrfbdy_dir_path = '../input/wrf_inputs/4d/quim_py/'
-CAMS_data_dir_path   = '../input/bck_ghg/'
-CAMS_interpolation_indices_file_path = os.path.join(CAMS_data_dir_path,'matlab_original/cal_indices/results/interp_indices_4d.txt.npz')
-IFS_L137_ab_file  = os.path.join(CAMS_data_dir_path,'index/ecmwf_coeffs_L137.csv')
+wrfbdy_dir_path = '../input/wrf_inputs/'
+CAMS_data_dir_path   ='../input/bck_ghg/CAMS/unzips/'
+CAMS_interpolation_indices_file_path = '../input/bck_ghg/interp_indices.txt.npz'
+IFS_L137_ab_file  = '../input/bck_ghg/ecmwf_coeffs_L137.csv'
 
 requested_domains = [ "d01", "d02","d03","d04"]
 sim_time       = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
@@ -51,8 +51,8 @@ simend_time = boundary_date[-1]
 # bdy_interval_seconds = 10800;
 
 # To each boundary date, assign a CAMS filename from which it will be read from:
-CAMS_ml_filenames  = [os.path.join(CAMS_data_dir_path+'unzips/CAMS_GACF_large_co_ch4_'+d+'.nc') for d in boundary_date]
-CAMS_lnsp_filenames = [os.path.join(CAMS_data_dir_path+'unzips/CAMS_GACF_large_co_ch4_'+d+'.nc') for d in boundary_date]
+CAMS_ml_filenames  = [os.path.join(CAMS_data_dir_path+'CAMS_GACF_large_co_ch4_'+d+'.nc') for d in boundary_date]
+CAMS_lnsp_filenames = [os.path.join(CAMS_data_dir_path+'CAMS_GACF_large_co_ch4_'+d+'.nc') for d in boundary_date]
 
 # If CAMS product also comes with the a, b coefficients.
 ##Am = double( ncread( CAMS_ml_filenames( 1, : ), 'hyam' ) );
