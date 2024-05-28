@@ -340,7 +340,7 @@ sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check th
 
 After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. 
 
-##### Ready to run the WRF-GHG model (see [namelist.input.example]()).
+##### Ready to run the WRF-GHG model (see [namelist.input.example](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/namelis.input)).
 
 
 #### NOAA data  -- (CO2)
