@@ -217,7 +217,7 @@ Here is an example of how file names should be saved in the wetchart directory:
 wchts_v1-3-1_model_2913_global_wet_ch4_monthly-2009.nc
 ```
 
-This information will be necessary to run the [prep_edgar.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_edgar.py) script.
+This information will be necessary to run the [prep_edgar.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_edgar.py) script.
 
 ### C. Fire Emissions
 Preparing the Fire emissions: 
@@ -234,7 +234,7 @@ Preparing the Fire emissions:
 3. And, save.
 ```
 
-* Secondly - modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/libraries/download_gfas_fire.py)" script:
+* Secondly - modify the DATE and NAME from "[download_gfas_fire.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/libraries/download_gfas_fire.py)" script:
 
 ```
 c.retrieve(
@@ -260,12 +260,12 @@ c.retrieve(
 $ python download_gfas_fire.py
 ```
 
-This information will be necessary to run the [prep_gfas.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_gfas.py) script.
+This information will be necessary to run the [prep_gfas.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_gfas.py) script.
 
 
 ## D. Run main script
 
-After preparing all the external information and obtaining the CO, CO2 and CH4 emissions from anthropogenic, biogenic and burned sources; the [WRF_Chem_PrepPy.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/WRF_Chem_PrepPy.py) script will be executed.
+After preparing all the external information and obtaining the CO, CO2 and CH4 emissions from anthropogenic, biogenic and burned sources; the [WRF_Chem_PrepPy.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/WRF_GHG_PrepPy.py) script will be executed.
 
 ```
 $ python WRF_Chem_PrepPy.py
@@ -303,7 +303,7 @@ monthi      = '08'
 monthe      = '08'
 ```
 
-This script is linked with the files [submit_cds_ads_download.sh](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/submit_cds_ads_download.sh) and [download_ghg_egg4.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/libraries/download_ghg_egg4.py).
+This script is linked with the files [submit_cds_ads_download.sh](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/libraries/submit_cds_ads_download.sh) and [download_ghg_egg4.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/libraries/download_ghg_egg4.py).
 
 
 ```
@@ -335,7 +335,7 @@ To start running scripts: A and B, it is recommended to have some files ready:
 - ecmwf_coeffs_L137.csv
 ```
 
-In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/prep_initial_cond.py) and [prep_boundary_cond.py](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/pys/prep_boundary_cond.py) scripts: modify the number of domains and simulation time.
+In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_initial_cond.py) and [prep_boundary_cond.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_boundary_cond.py) scripts: modify the number of domains and simulation time.
 
 
 ```
