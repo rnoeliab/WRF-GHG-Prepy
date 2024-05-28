@@ -4,6 +4,7 @@ import pandas as pd
 import xesmf as xe
 import xarray as xr
 import warnings, glob
+import time
 
 def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_method,sim_time,dom,projection_wrf,output_reg):
     print('STARTING WITH WETCHARTS AND EDGAR GHG emissions REGRID-PREPROCESSING')
@@ -164,6 +165,8 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
 
 
             # Attributes global
+            dataset.Source    = 'WRF input file created by Benavente R.N., (2023). Reference: (MPI-BGC Jena 2019)'
+            dataset.History   = 'Created ' + time.ctime(time.time())
             for i,j in enumerate(wrf_i.ncattrs()):
                 if i == 0: continue
                 dataset.setncattr(j,wrf_i.getncattr(j))

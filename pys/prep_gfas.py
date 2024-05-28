@@ -89,6 +89,9 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
             #lon[:,:]      = np.array(wrf_input.variables['XLONG_M'])
 
             # Attributes global
+            import time
+            dataset.Source    = 'WRF input file created by Benavente R.N., (2023). Reference: (MPI-BGC Jena 2019)'
+            dataset.History   = 'Created ' + time.ctime(time.time())  
             for i,j in enumerate(wrf_i.ncattrs()):
                 if i == 0: continue
                 dataset.setncattr(j,wrf_i.getncattr(j))

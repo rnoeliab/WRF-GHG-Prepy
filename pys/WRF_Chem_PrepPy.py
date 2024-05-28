@@ -1,7 +1,7 @@
 import datetime
 import subprocess
 import pandas as pd
-import prep_T_ann, prep_wetland_kaplan,prep_cpool_lpj,prep_gfas,prep_edgar
+import prep_T_ann, prep_wetland_kaplan,prep_cpool_lpj,prep_gfas,prep_edgar,Join_vprm_input
 #from cdo import *
 import warnings
 
@@ -13,10 +13,10 @@ IMPORTANT DATA:
 - wrf_geo --> Path where are the "geo_em" files.
 - sim_time --> It is necessary to set the start and end of the processing.
 '''
-domains        = 3                                                 # check this always
+domains        = 4                                                 # check this always
 wrf_inp        = '../input/wrf_inputs/wrfinput_d0'                   # check this always
 wrf_geos        = '../input/wrf_inputs/geo_em.d0'                     # check this always
-sim_time       = '2023-08-01 00:00:00','2022-01-31 23:00:00'       # check this!!
+sim_time       = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
 dates          = pd.to_datetime(sim_time[0]).strftime('%Y-%m-%d')
 pos            = '.nc'  
 projection_wrf = 'Lambert Conformal'
@@ -71,13 +71,11 @@ for i,j in enumerate(range(domains),start=1):
     print(datetime.datetime.now())
     
     #!rm intermediate_cpool_regrid.nc
-    
+   
     print('===================================')
     print('FINISHED WITH DOMAIN %s'%(str(dom)))
     print('===================================')  
 
-
-/home/nonna/git-nonna/WRF-VPRM-Prepy-Example/pys/dd/Join_vprm_input.py
 '''
 A1. Join CO, CO2 and CH4 data from biogenic emissions :
 
@@ -89,30 +87,13 @@ for i,j in enumerate(range(domains),start=1):
     wrf_inp_p        = wrf_inp  + str(i)
     wrf_geo_p        = wrf_geos  + str(i) + pos
 
-    ## join CH4 and CO2 biogenic dataset
-    
-    ######### READ CH4 BIO -- Kaplan inventory
-    cpoolp  = ch4_bio_p +'CPOOL_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
-    tannp   = ch4_bio_p + 'T_ANN_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
-    wetmapp = ch4_bio_p + 'WETMAP_d0%s_%s.nc'%(dom,pd.to_datetime(dates).year)
-
-    ######### READ CO2 BIO ---- prec vprm    
-    vprm_inp  = co2_bio_p 
-    evi_minp  = vprm_inp + 'd0%s/VPRM_input_EVI_MIN_%s.nc'%(dom,pd.to_datetime(dates).year)
-    evi_maxp  = vprm_inp + 'd0%s/VPRM_input_EVI_MAX_%s.nc'%(dom,pd.to_datetime(dates).year)
-    evip      = vprm_inp + 'd0%s/VPRM_input_EVI_%s.nc'%(dom,pd.to_datetime(dates).year)
-    lswi_minp = vprm_inp + 'd0%s/VPRM_input_LSWI_MIN_%s.nc'%(dom,pd.to_datetime(dates).year)
-    lswi_maxp = vprm_inp + 'd0%s/VPRM_input_LSWI_MAX_%s.nc'%(dom,pd.to_datetime(dates).year)
-    lswip     = vprm_inp + 'd0%s/VPRM_input_LSWI_%s.nc'%(dom,pd.to_datetime(dates).year)
-    vegfrap   = vprm_inp + 'd0%s/VPRM_input_VEG_FRA_%s.nc'%(dom,pd.to_datetime(dates).year)
-        
     #print(datetime.now())
-    %run -i Join_vprm_input.py
+    Join_vprm_input.biogenic(wrf_inp_p,wrf_geo_p,ch4_bio_p,co2_bio_p,dates,sim_time,dom,projection_wrf,output_reg)
     #print(datetime.now())   
     
     print('===================================')
     print('FINISHED WITH DOMAIN %s'%(str(dom)))
-    print('===================================')
+    print('===================================')   
 
 
 '''
@@ -161,7 +142,7 @@ for i,j in enumerate(range(domains),start=1):
 
     print('===================================')
     print('FINISHED WITH DOMAIN %s'%(str(dom)))
-    print('===================================')    
+    print('===================================')     
 
 
 
