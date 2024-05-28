@@ -81,6 +81,7 @@ These scripts will be run at the end of processing, since they are incorporated 
 To get the VPRM input, we'll need to go to Theo's processing: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples). 
 
 <dt> The pyVPRM repository has the scripts that will be used to preprocess the inputs VPRM. The pyVPRM_examples repository is an example of how it should be preprocessed. <dt>
+<dt> <dt>
 
 <dt>Perform the following steps:<dt>
 
@@ -176,7 +177,11 @@ VPRM_input_LSWI_MIN_2022.nc
 VPRM_input_VEG_FRA_2022.nc
 ```
 
-These files must be saved in: [co2_bio](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input/bio_ghg/co2_bio)
+These files must be saved in: [co2_bio](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/input/bio_ghg/co2_bio)
+
+**NOTE**  
+Here I leave some files to run "vprm_preprocessor_new.py" as an example for large domains.
+
 
 ### B. Anthropogenic Emissions
 Preparing the Anthropogenic emissions (EDGAR + Wetchart): 
