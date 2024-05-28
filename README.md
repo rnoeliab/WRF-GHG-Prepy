@@ -180,7 +180,7 @@ VPRM_input_VEG_FRA_2022.nc
 These files must be saved in: [co2_bio](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/input/bio_ghg/co2_bio)
 
 **NOTE**  
-Here I leave some files to run "vprm_preprocessor_new.py" as an example for large domains.
+Here I leave some files to run "vprm_preprocessor_new.py" as an example for large domains [vprm_input](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/vprm_input).
 
 
 ### B. Anthropogenic Emissions
