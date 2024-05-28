@@ -10,9 +10,9 @@ This module provides different preprocessing to prepare the different emissions 
 
 <dt>I. Firstly, run the scripts found in the "pys/libraries" directory.<dt>
 
-<dt>II. Secondly, run the scripts found in the "pys/prep" directory.<dt>
+<dt>II. Secondly, run the "WRF_Chem_PrepPy.py" script.<dt>
 
-<dt>III. Finally run the "WRF_Chem_PrepPy.py" script.<dt>
+<dt>III. Finally run the "prep_initial" and "prep_boundary" script.<dt>
 
 
 ## 1. Preparing external data !!!
@@ -338,10 +338,17 @@ sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check th
 
 <dt> The start and end data in the sim_time should be similar to "namelist.input". CAMS data will be stored in both the wrfinput and wrfbdy files <dt>
 
-After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. Ready to run the WRF-GHG model.
+After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. 
+
+##### Ready to run the WRF-GHG model (see [namelist.input.example]()).
 
 
 #### NOAA data  -- (CO2)
+
+
+
+
+
 
 
 ```
