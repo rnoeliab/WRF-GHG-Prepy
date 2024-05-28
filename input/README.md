@@ -54,7 +54,7 @@ output_reg     = '../output/'
 ### Run!!!
 
 ```
-python WRF_Chem_PrepPy.py
+python WRF_GHG_PrepPy.py
 ```
 
 

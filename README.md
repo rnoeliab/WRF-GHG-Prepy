@@ -44,8 +44,8 @@ This processing is divided into two parts: The Kaplan model and VPRM code:
 
 Three data are necessary here: CPOOL and wetland maps, and soil temperature data). The first two are provided by this repository and the latest data is downloaded from the Copernicus platform.
 
-1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
-2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
+1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
+2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
 3. Download the soil temperature data provided by ERA5 model, this is using the following step:
 
 ```
@@ -68,17 +68,19 @@ $ python download_era5_soiltemperature.py
 **NOTE**  
 Don't forget that it must be run within our created environment
 
-These files, saved in the [ch4_bio](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/input/bio_ghg/ch4_bio/) directory, are necessary to run the following scripts (located in the main script) :
+These files, saved in the [ch4_bio](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/input/bio_ghg/ch4_bio/) directory, are necessary to run the following scripts:
 
-- [prep_wetland_kaplan.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_wetland_kaplan.py), 
-- [prep_cpool_lpj.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_cpool_lpj.py),
-- [prep_T_ann.py](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/pys/prep_T_ann.py)
+- [prep_wetland_kaplan.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_wetland_kaplan.py), 
+- [prep_cpool_lpj.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_cpool_lpj.py),
+- [prep_T_ann.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_T_ann.py)
 
-These scripts will be run at the end of processing...
+These scripts will be run at the end of processing, since they are incorporated within the main code.
 
 #### A2. VPRM input 
 
-To get the VPRM input, we'll need to go to Theo's processing: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples).
+To get the VPRM input, we'll need to go to Theo's processing: [pyVPRM](https://github.com/tglauch/pyVPRM/tree/main) and [pyVPRM_examples](https://github.com/tglauch/pyVPRM_examples). 
+
+<dt> The pyVPRM repository has the scripts that will be used to preprocess the inputs VPRM. The pyVPRM_examples repository is an example of how it should be preprocessed. <dt>
 
 <dt>Perform the following steps:<dt>
 
@@ -108,7 +110,7 @@ pip install git+https://github.com/tglauch/pyVPRM.git
 
 On the [Global Land Cover - Copernicus](https://lcviewer.vito.be/2019) website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
 
-![all text](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/imags/copernicus_tiles.png)
+![all text](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/imags/copernicus_tiles.png)
 
 
 ##### A.2.4 MODIS download
