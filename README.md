@@ -1,4 +1,4 @@
-# WRF-VPRM-PrepPy
+# WRF-GHG-PrepPy
 
 The Weather Research and Forecasting (WRF) Model is a state of the art mesoscale numerical weather prediction system designed for both atmospheric research and operational forecasting applications. The model serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers. Furthermore, a coupled with the Vegetation Photosynthesis and Respiration Model (VPRM) (referred to as WRF-VPRM), has used to better understand the effects that mesoscale transport has on atmospheric CO2 distributions.
 
@@ -10,7 +10,7 @@ This module provides different preprocessing to prepare the different emissions 
 
 <dt>I. Firstly, run the scripts found in the "pys/libraries" directory.<dt>
 
-<dt>II. Secondly, run the "WRF_Chem_PrepPy.py" script.<dt>
+<dt>II. Secondly, run the "WRF_GHG_PrepPy.py" script.<dt>
 
 <dt>III. Finally run the "prep_initial" and "prep_boundary" script.<dt>
 
@@ -22,19 +22,19 @@ Here, we are using the WRF-VPRM v4.2.1 model:
 * Firstly - clone this repository in a linux/windows terminal and create an environment to work this module (there is an example in the [input](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/) directory):
 
 ```
->> git clone https://github.com/rnoeliab/WRF-VPRM-Prepy.git
+>> git clone https://github.com/rnoeliab/WRF-GHG-Prepy.git
 ```
 
-* Secondly - save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/wrf_inputs/)
+* Secondly - save the **"wrfinput"**, **"wrfbdy"** and **geo_em.d0#.nc** files in  the [wrf_inputs directory](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/input/wrf_inputs/)
 
 
-* Thirdly - run the scripts found inside the [libraries](https://github.com/rnoeliab/Inputs-WRF-VPRM/tree/main/pys/libraries/) directory, depending on the following sequence:
+* Thirdly - run the scripts found inside the [libraries](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/pys/libraries/) directory, depending on the following sequence:
 
 **NOTE**
 
 <dt>Every time we execute a python script we must be within our created environment .<dt>
 
-(see [WRF-VPRM-PrepPy Code](https://github.com/rnoeliab/WRF-VPRM-Prepy/tree/main/input))
+(see [WRF-GHG-PrepPy Code](https://github.com/rnoeliab/WRF-GHG-Prepy/tree/main/input))
 
 ### A. Biogenic Emissions
 
@@ -44,8 +44,8 @@ This processing is divided into two parts: The Kaplan model and VPRM code:
 
 Three data are necessary here: CPOOL and wetland maps, and soil temperature data). The first two are provided by this repository and the latest data is downloaded from the Copernicus platform.
 
-1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
-2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
+1. CPOOL - [lpj_cpool_2000.nc](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/bio_ghg/ch4_bio/lpj_cpool_2000.nc)
+2. wetland - [global_wetland_kaplan.nc](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/input/bio_ghg/ch4_bio/global_wetland_kaplan.nc)
 3. Download the soil temperature data provided by ERA5 model, this is using the following step:
 
 ```
