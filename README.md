@@ -326,7 +326,7 @@ It is recommended to place the name of the file using the year, month and initia
 
 **1C: Run Inicial and Boundary conditions**
 
-To start running scripts: A and B, it is recommended to have some files ready:
+To start running scripts: "prep_initial_cond.py" and "prep_boundary_cond.py", it is recommended to have some files ready:
 
 ```
 - wrfinput/wrfbdy
