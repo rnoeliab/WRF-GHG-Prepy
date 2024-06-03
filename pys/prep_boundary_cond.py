@@ -97,10 +97,16 @@ ncid.variables['CO2_BIO_BYS'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_Y_scala
 ncid.variables['CO2_BIO_BYE'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
 
 ch4_bio_offset_ppm = 1.8
-ncid.variables['CH4_BIO_BXS'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
-ncid.variables['CH4_BIO_BXE'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
-ncid.variables['CH4_BIO_BYS'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
-ncid.variables['CH4_BIO_BYE'][:] = co2_bio_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
+ncid.variables['CH4_BIO_BXS'][:] = ch4_bio_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
+ncid.variables['CH4_BIO_BXE'][:] = ch4_bio_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
+ncid.variables['CH4_BIO_BYS'][:] = ch4_bio_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
+ncid.variables['CH4_BIO_BYE'][:] = ch4_bio_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
+
+ch4_bio_soils_offset_ppm = 1.8
+ncid.variables['CH4_BIO_Soils_BXS'][:] = ch4_bio_soils_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
+ncid.variables['CH4_BIO_Soils_BXE'][:] = ch4_bio_soils_offset_ppm * np.ones(dummy_4d_X_scalar_field.shape)
+ncid.variables['CH4_BIO_Soils_BYS'][:] = ch4_bio_soils_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
+ncid.variables['CH4_BIO_Soils_BYE'][:] = ch4_bio_soils_offset_ppm * np.ones(dummy_4d_Y_scalar_field.shape)
 ncid.close()
 
 # Next step is to fill the background fields using CAMS product values

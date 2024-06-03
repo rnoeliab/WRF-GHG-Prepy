@@ -96,11 +96,13 @@ for domain_idx in range(len(requested_domains)):
 
     co2_bio_init = 400 * np.ones((n_vertical_levels,n_sn,n_ew))
     ch4_bio_init = 1.8 * np.ones((n_vertical_levels,n_sn,n_ew))
-
+    ch4_soil_uptake_init = 1.8 * np.ones((n_vertical_levels,n_sn,n_ew))
+    
     #Write the values already:
     ncid = cdf.Dataset(wrfinput_path, 'r+')
     ncid.variables['CO2_BIO'][0] = co2_bio_init
     ncid.variables['CH4_BIO'][0] = ch4_bio_init
+    ncid.variables['CH4_BIO_Soils'][0] = ch4_soil_uptake_init
     ncid.close()
 
     #Proceed to CAMS fields
