@@ -76,7 +76,7 @@ cams_co  = cdf.Dataset(path_CAMS_ml_file,'r').variables['co'][cams_time_idx,:,:,
 
 #Now execute the caluclation per-domain
 for domain_idx in range(len(requested_domains)):
-    print('Processing domain:',requested_domains[domain_idx]);
+    print('Processing domain:', requested_domains[domain_idx]);
 
     #Load CAMS interpolation indices for this domain
     print('Loading in the pre-calculated nearest-neighbour interipolation indices.');
@@ -97,12 +97,12 @@ for domain_idx in range(len(requested_domains)):
     co2_bio_init = 400 * np.ones((n_vertical_levels,n_sn,n_ew))
     ch4_bio_init = 1.8 * np.ones((n_vertical_levels,n_sn,n_ew))
     ch4_soil_uptake_init = 1.8 * np.ones((n_vertical_levels,n_sn,n_ew))
-    
+
     #Write the values already:
     ncid = cdf.Dataset(wrfinput_path, 'r+')
     ncid.variables['CO2_BIO'][0] = co2_bio_init
     ncid.variables['CH4_BIO'][0] = ch4_bio_init
-    ncid.variables['CH4_BIO_Soils'][0] = ch4_soil_uptake_init
+    #ncid.variables['CH4_BIO_Soils'][0] = ch4_soil_uptake_init
     ncid.close()
 
     #Proceed to CAMS fields
@@ -112,15 +112,14 @@ for domain_idx in range(len(requested_domains)):
     wrf_pressure = xr.open_dataset(wrfinput_path)['PB'].values[0] + xr.open_dataset(wrfinput_path)['P'].values[0];
     wrf_init_CH4_BCK = np.zeros((dummy_3d_scalar_field.shape))  + (-999.)
     wrf_init_CO_BCK = np.zeros((dummy_3d_scalar_field.shape))  + (-999.)
-    #wrf_init_CH4_BCK = np.full(dummy_3d_scalar_field.shape, -999.)
+    #wrf_init_CO2_BCK = np.full(dummy_3d_scalar_field.shape, -999.)
 
-    ##wrf_init_CO2_BCK = -999*ones( size( dummy_3d_scalar_field ) );
     for lat_idx in range(n_sn):
         print(f'Processing latitude band {lat_idx}/{n_sn}');
         for lon_idx in range(n_ew):
             #Get CAMS surface pressure
-            surface_pressure = cams_pressure[:,interpolation_indices[lat_idx,lon_idx, 0].astype(int), interpolation_indices[lat_idx,lon_idx,1].astype(int)]
-            cams_v_pressures = surface_pressure.data * b.astype(float) +a.astype(float)
+            surface_pressure = cams_pressure[:,interpolation_indices[lat_idx,lon_idx, 1].astype(int), interpolation_indices[lat_idx,lon_idx,0].astype(int)]
+            cams_v_pressures = surface_pressure * b.astype(float) +a.astype(float)
             #Get WRF levels
             wrf_v_pressures  = np.squeeze(wrf_pressure[:,lat_idx,lon_idx]); 
             for lvl_idx in range(n_vertical_levels):
@@ -130,8 +129,8 @@ for domain_idx in range(len(requested_domains)):
                 cams_nearest_lvl_idx = min(np.where(difference == min(difference)))[0];
 
                 # Find the indices of the nearest horizontal grid points for the specified longitude and latitude
-                lat_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 0])
-                lon_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 1])
+                lat_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 1])
+                lon_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 0])
                 
             #    print(np.array([cams_nearest_lvl_idx, lat_idx_nearest, lon_idx_nearest]))
                 # Create a 1D NumPy array containing the indices of the nearest horizontal grid points and the nearest vertical level
@@ -150,11 +149,5 @@ for domain_idx in range(len(requested_domains)):
     ncid.close()
 
 print('Script completed.');
-
-
-
-
-
-
 
 

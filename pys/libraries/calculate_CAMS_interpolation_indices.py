@@ -54,7 +54,7 @@ def short_dist(latlon1,latlon2):
     # First version: 15 Jan 2012
     # Updated: 17 June 2012
     #--------------------------------------------------------------------------
-    R=6371000  ## Radius of the earth in meters 
+    R=6371  ## Radius of the earth in kmeters 
     lat1=np.radians(latlon1[0])
     lat2=np.radians(latlon2[:,0])
     lon1=np.radians(latlon1[1])
@@ -74,6 +74,9 @@ def short_dist(latlon1,latlon2):
 # Set directory and file paths
 cams_path   = '../../input/bck_ghg/CAMS/unzips/';
 geo_em_path = '../../input/wrf_inputs/';
+
+# Specify output file
+#output_file = '../../bck_ghg/';
 
 filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
 
@@ -95,16 +98,16 @@ for current_domain_idx in requested_domains:
 
   print( 'Calculating distances between CAMS and WRF nodes using short_dist function'  ); 
 
-  for x1 in range(xlat.shape[0]):
-    print(f'Domain {current_domain_idx}, longitude band #{x1+1}/{xlat.shape[0]}')
-    for x2 in range(xlat.shape[1]):
-      testdist = short_dist([xlat[x1, x2],xlong[x1, x2]],np.concatenate((mesh_lat.reshape(-1, 1), mesh_lon.reshape(-1, 1)), axis=1))
+  for x1 in range(xlat.shape[1]):
+    print(f'Domain {current_domain_idx}, longitude band #{x1+1}/{xlat.shape[1]}')
+    for x2 in range(xlat.shape[0]):
+      testdist = short_dist([xlat[x2, x1],xlong[x2, x1]],np.concatenate((mesh_lat.reshape(-1, 1), mesh_lon.reshape(-1, 1)), axis=1))
       mindist=np.min(testdist);
-  #    print('The minimum distance found here is %f.'%mindist);
       dist2d = testdist.reshape(mesh_lat.shape)
-      i, j = np.where(dist2d == mindist)
-      indices[x1, x2, 0] = j[0]
-      indices[x1, x2, 1] = i[0]
+      j, i = np.where(dist2d == mindist)
+#      print('The minimum distance found here is %f.'%mindist);
+      indices[x2, x1, 0] = i[0]
+      indices[x2, x1, 1] = j[0]
 
       variable_name = 'cams_indices_' + current_domain_idx
       globals()[variable_name] = indices
@@ -112,14 +115,15 @@ for current_domain_idx in requested_domains:
   variable_name = 'cams_indices_' + current_domain_idx
   globals()[variable_name] = indices
 
-
-# Specify output file
 nowpath = os.getcwd()
 print("Current directory:", nowpath)
-os.chdir("../..")
-output_file = os.getcwd() + '/input/bck_ghg/';
+os.chdir('../..')
+
+output_file = os.getcwd() + '/input/bck_ghg/'
 
 print(f'Saving output index matrices in into: {output_file}')
 variables = [name for name in globals().keys() if name.startswith('cams_indices_')]
+#print([**{var: globals()[var] for var in variables}])
 np.savez(output_file+'interp_indices.txt', **{var: globals()[var] for var in variables})
+
 

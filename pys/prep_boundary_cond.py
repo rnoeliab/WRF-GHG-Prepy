@@ -162,6 +162,8 @@ co_bck_btye = 0*dummy_4d_Y_scalar_field.copy()
 
 for time_idx in range(len(boundary_dates)):
     current_time = boundary_dates[time_idx]
+
+    print(current_time)
     # Read CAMS files: ml and lnsp:
     path_CAMS_ml_file = CAMS_ml_filenames[time_idx]
     path_CAMS_lnsp_file = CAMS_lnsp_filenames[time_idx]
@@ -170,17 +172,17 @@ for time_idx in range(len(boundary_dates)):
     # Times are given as hours since 1900-01-01 00:00:00 UTC
     cams_times = xr.open_dataset(path_CAMS_ml_file)['time']
     cams_dates = pd.to_datetime(cams_times).strftime("%Y-%m-%d %H:%M:%S")
-
+    
     #Check if one of the times is the same as current time:
     posw = int(time.mktime(current_time.timetuple()))
     posc = [int(time.mktime(pd.to_datetime(d).timetuple())) for d in cams_times.values]
-
     reading_from  = path_CAMS_ml_file
     cams_time_idx = posc.index(posw) if posw in posc else None
-
+    
     # Now read appripriate CAMS fields, but only for the selected time.
     cams_ch4 = cdf.Dataset(path_CAMS_ml_file,'r').variables['ch4_c'][cams_time_idx,:,:,:]*(28.97/16.01)*1e6;   # (lev,lat,lon)  == (137, 451, 900)
     cams_co  = cdf.Dataset(path_CAMS_ml_file,'r').variables['co'][cams_time_idx,:,:,:]*(28.97/28.01)*1e6;
+
     #cams_co2 = ncread( path_CAMS_ml_file, 'co2', nc_start_vector, nc_count_vector  ) * (28.97/44.01)*1e6;
 
     # Read surface pressure for current time
@@ -209,7 +211,7 @@ for time_idx in range(len(boundary_dates)):
                 surface_pressure = cams_pressure[0,lat_idx_nearest, lon_idx_nearest]
                 
                 # Calculate CAMS vertical pressures for the available levels
-                cams_v_pressures = surface_pressure.data * b.astype(float) +a.astype(float)
+                cams_v_pressures = surface_pressure * b.astype(float) +a.astype(float)
 
                 # Get WRF levels
                 wrf_v_pressures  = np.squeeze(wrf_pressure[:,lat_idx,lon_idx]); 
@@ -217,10 +219,10 @@ for time_idx in range(len(boundary_dates)):
                 difference = np.abs(cams_v_pressures - wrf_v_pressures[lvl_idx]);
                 cams_nearest_lvl_idx = min(np.where(difference == min(difference)))[0];
                 
-                cams_indices = np.array([lon_idx_nearest, lat_idx_nearest,cams_nearest_lvl_idx])
+                cams_indices = np.array([cams_nearest_lvl_idx, lat_idx_nearest, lon_idx_nearest])
 
-                wrf_init_CH4_BCK[lvl_idx,lat_idx,lon_idx] = cams_ch4[cams_indices[2], cams_indices[1], cams_indices[0]];
-                wrf_init_CO_BCK[lvl_idx,lat_idx,lon_idx]  = cams_co[cams_indices[2], cams_indices[1], cams_indices[0]];
+                wrf_init_CH4_BCK[lvl_idx,lat_idx,lon_idx] = cams_ch4[cams_indices[0], cams_indices[1], cams_indices[2]];
+                wrf_init_CO_BCK[lvl_idx,lat_idx,lon_idx]  = cams_co[cams_indices[0], cams_indices[1], cams_indices[2]]; 
 
     for lvl_idx in range(n_vertical_levels):
         print(f'XS and XE (LEFT and RIGHT), lvl {lvl_idx+1}/{n_vertical_levels}')
@@ -230,10 +232,10 @@ for time_idx in range(len(boundary_dates)):
                 # Get CAMS surface pressure
                 lat_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 1])
                 lon_idx_nearest = int(interpolation_indices[lat_idx, lon_idx, 0])
-                surface_pressure = cams_pressure[:,lat_idx_nearest, lon_idx_nearest]
+                surface_pressure = cams_pressure[0,lat_idx_nearest, lon_idx_nearest]
 
                 # Calculate CAMS vertical pressures for the available levels
-                cams_v_pressures = surface_pressure.data * b.astype(float) +a.astype(float)
+                cams_v_pressures = surface_pressure * b.astype(float) +a.astype(float)
 
                 # Get WRF levels
                 wrf_v_pressures  = np.squeeze(wrf_pressure[:,lat_idx,lon_idx]); 
@@ -241,11 +243,11 @@ for time_idx in range(len(boundary_dates)):
                 difference = np.abs(cams_v_pressures - wrf_v_pressures[lvl_idx]);
                 cams_nearest_lvl_idx = min(np.where(difference == min(difference)))[0];
                 
-                cams_indices = np.array([lon_idx_nearest, lat_idx_nearest,cams_nearest_lvl_idx])
+                cams_indices = np.array([cams_nearest_lvl_idx, lat_idx_nearest, lon_idx_nearest])
 
                 # Assign appropriate values to the boundaries
-                wrf_init_CH4_BCK[lvl_idx,lat_idx,lon_idx] = cams_ch4[cams_indices[2], cams_indices[1], cams_indices[0]];
-                wrf_init_CO_BCK[lvl_idx,lat_idx,lon_idx]  = cams_co[cams_indices[2], cams_indices[1], cams_indices[0]];
+                wrf_init_CH4_BCK[lvl_idx,lat_idx,lon_idx] = cams_ch4[cams_indices[0], cams_indices[1], cams_indices[2]];
+                wrf_init_CO_BCK[lvl_idx,lat_idx,lon_idx]  = cams_co[cams_indices[0], cams_indices[1], cams_indices[2]];
 
     if time_idx < len(boundary_dates)-1:
         # Full fields now interpolated.
@@ -281,9 +283,9 @@ print("Begin linear interpolation for missing timesteps")
 tmax_idx = len(boundary_dates)  # 9
 boundary_dates = [d.strftime('%Y-%m-%d %H:%M:%S') for d in boundary_dates ]
 
-for time_miss in range(0,tmax_idx-1, 2):
+for time_miss in range(1,tmax_idx, 2):
     print(f"overwriting {boundary_dates[time_miss]} with ({boundary_dates[time_miss+1]} + {boundary_dates[time_miss-1]})/2")
-
+    
     ch4_bck_bxs[time_miss,:, :, :] = (ch4_bck_bxs[time_miss+1,:,:,:] + ch4_bck_bxs[time_miss-1,:,:,:])/2
     ch4_bck_bxe[time_miss,:, :, :] = (ch4_bck_bxe[time_miss+1,:,:,:] + ch4_bck_bxe[time_miss-1,:,:,:])/2
     ch4_bck_bys[time_miss,:, :, :] = (ch4_bck_bys[time_miss+1,:,:,:] + ch4_bck_bys[time_miss-1,:,:,:])/2
@@ -298,6 +300,7 @@ for time_miss in range(0,tmax_idx-1, 2):
 # Here, using slightly modified code from Julia M.
 tmax_idx = len(boundary_dates)
 print('Assigning tendencies')
+
 
 for time_idx in range(tmax_idx-1):
     # Separately for EAST and WEST (X)
@@ -364,3 +367,4 @@ ncid.variables['CO_BCK_BTYE'][:] = co_bck_btye
 
 ncid.close()
 print('Script completed.')
+
