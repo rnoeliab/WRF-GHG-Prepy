@@ -62,7 +62,7 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
         edgar_open['lon_adj'] = xr.where(edgar_open['lon']> 180, edgar_open['lon'] - 360, edgar_open['lon'])
         edgar_open            = edgar_open.sortby(edgar_open["lon_adj"])
         
-        edgar_data[str(pol)]  = np.array(edgar_open['emis_tot'][month-1,:,:])*36*(10**11)/float(mvar[v]) 
+        edgar_data[str(pol)]  = np.array(edgar_open['emis_tot'][month-1,:,:])*36*(10**9)/float(mvar[v])  ###kg/m^2 s  --> mol/km^2 hr 
         edgar_units[str(pol)] = edgar_open['emis_tot'].units
         
         lons_edgar     = np.array(edgar_open['lon_adj'])

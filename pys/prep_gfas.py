@@ -19,11 +19,16 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
 
     gfas_data = {}; gfas_name = {}
     for v,pol in enumerate(var):  
-        gfas_data[str(pol)]  =  np.array(gfas_open.variables[var[0]])*36*(10**11)/float(mvar[v]) 
+        gfas_data[str(pol)]  =  np.array(gfas_open.variables[var[0]])*36*(10**9)/float(mvar[v]) ###kg/m^2 s  --> mol/km^2 hr
         gfas_name[str(pol)]  =  gfas_open.variables[var[0]].long_name
         
         gfas_data[str(pol)][gfas_data[str(pol)]<=0] = 0
 
+    ##### referencia PRE-CHEM
+    temp_fact_utc = [0.052, 0.045, 0.035, 0.026, 0.018, 0.015, 0.020, 0.025, 
+                    0.031, 0.036, 0.041, 0.045, 0.048, 0.050, 0.050, 0.049,
+                    0.047, 0.047, 0.048, 0.050, 0.053, 0.056, 0.058, 0.056]
+    
     lons_ecmwf     = np.array(gfas_open.variables['longitude'])
     lats_ecmwf     = np.array(gfas_open.variables['latitude']) 
 
@@ -82,9 +87,9 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
             
             # data
             time[:,:]     = np.array([" ".join(date).split()], dtype = 'S19')
-            co2f[:,:]     = gfas_data_re['co2fire'][q]
-            cof[:,:]      = gfas_data_re['cofire'][q]
-            ch4f[:,:]     = gfas_data_re['ch4fire'][q]
+            co2f[:,:]     = gfas_data_re['co2fire'][q]*temp_fact_utc[h]
+            cof[:,:]      = gfas_data_re['cofire'][q]*temp_fact_utc[h]
+            ch4f[:,:]     = gfas_data_re['ch4fire'][q]*temp_fact_utc[h]
             #lat[:,:]      = np.array(wrf_input.variables['XLAT_M'])
             #lon[:,:]      = np.array(wrf_input.variables['XLONG_M'])
 

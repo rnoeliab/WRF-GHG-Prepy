@@ -120,7 +120,7 @@ def biogenic(wrf_inp_p,wrf_geo_p,ch4_bio_p,co2_bio_p,dates,sim_time,dom,projecti
         lswi_max_in[:,:,:]  = lswi_maxs[:,:,:]
         lswi_in[:,:,:]      = lswi_month[:,q,:,:]
         vegfra_in[:,:,:]    = vegfra.variables['vegetation_fraction_map'].values
-        cpool_in[:,:]       = cpool.variables['CPOOL'].values
+        cpool_in[:,:]       = cpool.variables['CPOOL'].values/1000
         wetmap_in[:,:]      = wetmap.variables['WETMAP'].values
         tann_in[:,:]        = tann.variables['T_ANN'].values
 
@@ -198,7 +198,7 @@ def biogenic(wrf_inp_p,wrf_geo_p,ch4_bio_p,co2_bio_p,dates,sim_time,dom,projecti
         cpool_in.long_name    = 'LPJ Carbon pool'
         cpool_in.FieldType    = 104
         cpool_in.MemoryOrder  = 'XYZ'
-        cpool_in.units        = '$kgC/m^{2}$'
+        cpool_in.units        = 'KgC/m^2'
         cpool_in.description  = 'Carbon pool value for Kaplan model'
         cpool_in.stagger      = 'M'
         cpool_in.coordinates  = 'XLONG XLAT'

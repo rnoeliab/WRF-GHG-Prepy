@@ -51,7 +51,7 @@ def prep_cpool(wrf_geo_p,path_cpool,cpool_var,regrid_method,sim_time,dom,project
     date          = sim_time[0][0:10]
     domain        = dom #wrf_input.getncattr('GRID_ID')
     projection    = projection_wrf
-    units         = 'Kg m-2 month-1'
+    units         = 'g m-2 month-1'
     #filename      = cpool_out + 'cpool_fast_LPJ_cdo_d0%s_%s.nc'%(domain,date)
     filename      = cpool_out + 'CPOOL_d0%s_%s.nc'%(domain,pd.to_datetime(date).year)
 
@@ -85,7 +85,7 @@ def prep_cpool(wrf_geo_p,path_cpool,cpool_var,regrid_method,sim_time,dom,project
     # data
     latitudes[:,:]   = np.array(wrf_input.variables['XLAT_M'])
     longitudes[:,:]  = np.array(wrf_input.variables['XLONG_M'])
-    cpool[:,:]       = (cpool_re[0] * wrf_lmask[0]) / 1000
+    cpool[:,:]       = (cpool_re[0] * wrf_lmask[0]) 
 
     dataset.close()
 
