@@ -352,6 +352,16 @@ After taking into account these modifications and running the scripts, the wrfin
 
 **Extra: Errors with MODIS data**
 
+<dt> Some problems occurred when running "vprm". Therefore I share some files that could solve these problems: <dt>
+An exercise to do before running the script "":
+Within the environment, open a terminal:
+
+
+```
+>> python
+>> import rioxarray
+>> ds = rioxarray.open_rasterio("MOD09A1.A2020049.h08v11.061.hdf")
+```
 
 #### NOAA data  -- (CO2)
 
