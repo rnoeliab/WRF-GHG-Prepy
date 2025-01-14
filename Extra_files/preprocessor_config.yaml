@@ -1,0 +1,12 @@
+years:
+ - 2022
+satellite: modis
+sat_image_path: ./data/modis/
+copernicus_path: ./data/copernicus/
+out_path: ./out_p2/dominio_1/
+geo_em_file: ./data/geo_em.d01.nc
+n_chunks: 32
+hvs:
+ - [12,9] 
+
+
