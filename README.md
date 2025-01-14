@@ -350,7 +350,7 @@ After taking into account these modifications and running the scripts, the wrfin
 ##### Ready to run the WRF-GHG model (see [namelist.input.example](https://github.com/rnoeliab/WRF-VPRM-Prepy/blob/main/namelist.input)).
 
 
-##**Extra: Errors with MODIS data**
+## Extra: Errors with MODIS data
 
 <dt> Some problems occurred when running "vprm". Therefore I share some files that could solve these problems: <dt>
 An exercise to do before running the script "":
