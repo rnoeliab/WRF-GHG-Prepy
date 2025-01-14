@@ -353,7 +353,7 @@ After taking into account these modifications and running the scripts, the wrfin
 ## Extra: Errors with MODIS data
 
 <dt> Some problems occurred when running "vprm". Therefore I share some files, in ,that could solve these problems: <dt>
-An exercise to do before running the [vprm_preprocessor_new.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/vprm_input/vprm_preprocessor_new.py) script:
+An exercise to do before running the [vprm_preprocessor_new.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/Extra_files/vprm_preprocessor_new.py) script:
 Within the environment, open a terminal:
 
 
