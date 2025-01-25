@@ -1,7 +1,7 @@
 # WRF-GHG-PrepPy
 
-<dt>Contributors: sbotia@bgc-jena.mpg.de  and Theo.Glauch@dlr.de  <dt>
-<dt> <dt>
+<dt>Contributors: sbotia@bgc-jena.mpg.de  and Theo.Glauch@dlr.de  <dt><br />
+
 The Weather Research and Forecasting (WRF) Model is a state of the art mesoscale numerical weather prediction system designed for both atmospheric research and operational forecasting applications. The model serves a wide range of meteorological applications across scales from tens of meters to thousands of kilometers. Furthermore, a coupled with the Vegetation Photosynthesis and Respiration Model (VPRM) (referred to as WRF-VPRM), has used to better understand the effects that mesoscale transport has on atmospheric CO2 distributions.
 
 ![all text](https://github.com/rnoeliab/Inputs-WRF-VPRM/blob/main/flowchart_vprm.png)
