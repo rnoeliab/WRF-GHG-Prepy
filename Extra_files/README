@@ -1,1 +1,12 @@
-##
+# WRF-GHG-PrepPy 
+
+There are probably some problems running Theo's program together with WRF-GHG-Preppy.
+
+if there are problems with the "HDF" format
+
+ "RasterioIOError: '...20324091904.hdf' not recognized as being in a supported file format. It could have been recognized by driver HDF4, but plugin gdal_HDF4.so is not available in your installation. You may install it with 'conda install -c conda-forge libgdal-hdf4'
+"
+
+
+
+
