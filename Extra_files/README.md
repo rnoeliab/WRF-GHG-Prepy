@@ -13,7 +13,7 @@ For this, I followed some steps where I managed to solve this problem:
 ```
 conda create -n pyvprm
 conda activate pyvprm
-onda install -c conda-forge rioxarray==0.13.3
+conda install -c conda-forge rioxarray==0.13.3
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 conda install -c conda-forge dask netCDF4
