@@ -281,6 +281,9 @@ wrffire_d0<domain>_<date>*
 vprm_input_d0<domain>_<date>*
 ```
 
+Before running the WRF-GHG model, once all the emissions files are prepared, the next step is to determine the source of initial and boundary conditions. For this, we consider two CAMS products: the inversion-based dataset and the GACF dataset.
+
+
 ## 1. Run the Background Fields
 
 To prepare the chemical initial and boundary conditions to feed the WRF-GHG model, specifically for CO, CO2 and CH4, some steps must be carried out.
