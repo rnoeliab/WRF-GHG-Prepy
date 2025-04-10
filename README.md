@@ -299,25 +299,9 @@ The preprocessing involved downloading global concentration fields from the CAMS
 
 In the following sections, several scripts are provided to download and process both CAMS products—Inversion and GACF. Although there are multiple CAMS products available, a standardized sequence is followed to preprocess and incorporate the selected dataset into the WRF-GHG model. These scripts automate the workflow, from data retrieval to formatting, ensuring compatibility with the wrfinput and wrfbdy files. 
 
-#### Steps:
-
-<dt> Here I am leaving an example: <dt>
-
-<dt> Run date, 01-15 - August - 2022, for 4 domains.<dt>
-
-<dt> <dt>
-**1A: Download CAMS data for our period**
-
-<dt>In "download_CAMS_product_with_cmmd.py" : modify your period <dt>
-
-```
-year        = '2022'
-monthi      = '08'
-monthe      = '08'
-```
 
 
-### 1B.
+### 1B. Boundary conditions
 
 
 
