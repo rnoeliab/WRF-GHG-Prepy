@@ -1,60 +1,70 @@
 # codes to use the initial and boundary conditions script
 
-To run the main script [WRF_GHG_PrepPy.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/WRF_GHG_PrepPy.py), is necessary to have some libraries ready. 
+## 1. Processing for the CAMS-GACF product 
 
-<dt>There are two paths:<dt>
 
-### 1. Running the file "environment.yml"
 
-```
-conda env create -f environment.yml
-```
+**1A: Download CAMS data for our period**
 
-### 2. Manually
+<dt>In "download_CAMS_with_cmmd.py" : modify your period <dt>
 
 ```
-conda create -n pyvprm python==3.9.13
-conda activate pyvprm
-pip install cdsapi
-conda install pandas
-conda install -c conda-forge xesmf
-conda install -c conda-forge dask netCDF4
-conda install -c conda-forge matplotlib cartopy jupyterlab
-conda install -c conda-forge xarray dask netCDF4 bottleneck
+year        = '2022'
+monthi      = '08'
+monthe      = '08'
 ```
 
-<dt> Now to edit the main code, you must take into account the following: <dt>
+This script is linked with the files [submit_cds_ads_download.sh](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/libraries/submit_cds_ads_download.sh) and [download_ghg_egg4.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/libraries/download_ghg_egg4.py).
 
-<dt> 1. The period in which the WRF-GHG model will be run, that is, start and end date (including hours).<dt>
-<dt> 2. The domains <dt>
-<dt> 3. and that the input and output paths are correct. <dt>
-
-## Edit WRF_Chem_PrepPy.py
-
-Ejm: 
 
 ```
-domains        = 4                                                 # check this always
-wrf_inp        = '../input/wrf_inputs/wrfinput_d0'                   # check this always
-wrf_geos       = '../input/wrf_inputs/geo_em.d0'                     # check this always
-sim_time       = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
-dates          = pd.to_datetime(sim_time[0]).strftime('%Y-%m-%d')
-pos            = '.nc'  
-projection_wrf = 'Lambert Conformal'
-
-ch4_bio_p      = '../input/bio_ghg/ch4_bio/'
-co2_bio_p      = '../input/bio_ghg/co2_bio/'
-fire_p         = '../input/fire_ghg/'
-anthr_p        = '../input/anthr_ghg/'
-
-output_reg     = '../output/'
-
+Finally, run: python download_CAMS_with_cmmd.py
 ```
 
-### Run!!!
+**1B: Calculate CAMS Interpolation Indices**
+
+<dt>In "calculate_CAMS_interpolation_indices.py" : modify the number of domains and the file name ("filein"). <dt>
 
 ```
-python WRF_GHG_PrepPy.py
+See lines: 81 and 85
+
+filein = os.path.join(cams_path, 'CAMS_GACF_large_co_ch4_20220801.nc')
+requested_domains = [ "d01", "d02","d03","d04"];
 ```
+
+It is recommended to place the name of the file using the year, month and initial day ("20220801"), since that name is generated when the download_CAMS_with_cmmd.py script is run.
+
+
+**1C: Run Inicial and Boundary conditions**
+
+To start running scripts: "prep_initial_cond.py" and "prep_boundary_cond.py", it is recommended to have some files ready:
+
+```
+- wrfinput/wrfbdy
+- CAMS data
+- interp_indices.txt.npz
+- ecmwf_coeffs_L137.csv
+```
+
+In [prep_initial_cond.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_initial_cond.py) and [prep_boundary_cond.py](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/pys/prep_boundary_cond.py) scripts: modify the number of domains and simulation time.
+
+
+```
+requested_domains = [ "d01", "d02","d03","d04"]
+sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check this!!
+```
+
+<dt> The start and end data in the sim_time should be similar to "namelist.input". CAMS data will be stored in both the wrfinput and wrfbdy files <dt>
+
+After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. 
+
+
+
+
+
+## 2. CAMS-Inversion product
+
+
+
 
 
