@@ -2,7 +2,12 @@
 
 ## 1. Processing for the CAMS-GACF product 
 
+For CO and CH₄:
 
+#### Steps:
+<dt> Here I am leaving an example: <dt>
+
+<dt> Run date, 01-15 - August - 2022, for 4 domains.<dt>
 
 **1A: Download CAMS data for our period**
 
@@ -57,8 +62,6 @@ sim_time          = '2022-08-01 00:00:00','2022-08-15 23:00:00'       # check th
 <dt> The start and end data in the sim_time should be similar to "namelist.input". CAMS data will be stored in both the wrfinput and wrfbdy files <dt>
 
 After taking into account these modifications and running the scripts, the wrfinput and wrfbdy files will be modified, storing the CAMS information. 
-
-
 
 
 
