@@ -8,15 +8,15 @@ import glob
 import xarray as xr
 import shutil
 
-base_theo =  '/home/rnoeliab/pyVPRM_examples/wrf_preprocessor/out/dominio_1/'
-output = '/home/rnoeliab/WRF-VPRM-Prepy/input/bio_ghg/co2_bio/'
+base_theo =  '/media/nonna/TOSHIBA EXT/2023/IFUSP/DATA/MODIS-EVI-LSWI/vprm_input/d03/'
+output = '/media/nonna/TOSHIBA EXT/2023/IFUSP/DATA/MODIS-EVI-LSWI/vprm_input/'
 
 for fbase in np.unique([i.split('_part')[0] for i in glob.glob(os.path.join(base_theo, 'VPRM_input*part_*'))]):
     print(fbase)  
     if os.path.exists(fbase+'.nc'):
        continue
     lon_stripes = []
-    for n in np.arange(1,33,1):
+    for n in np.arange(1,3,1):
         list = sorted(glob.glob(fbase+'*_{}.nc'.format(n)))
         spslits = [n.split('_part_')[1] for n in list]
         names = [n.split('_part_')[0] for n in list][0]
