@@ -273,7 +273,7 @@ After preparing all the external information and obtaining the CO, CO2 and CH4 e
 $ python WRF_GHG_PrepPy.py
 ```
 
-This script will generate the input files for the WRF-GHG model (for all domains):
+This script will generate the input files for the WRF-GHG model (for all domains), the file will be saved in [output](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/output/):
 
 ```
 wrfchemi_d0<domain>_<date>*
