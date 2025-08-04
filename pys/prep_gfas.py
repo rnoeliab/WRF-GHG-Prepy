@@ -19,12 +19,12 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
 
     gfas_data = {}; gfas_name = {}
     for v,pol in enumerate(var):  
-        gfas_data[str(pol)]  =  np.array(gfas_open.variables[var[0]])*36*(10**9)/float(mvar[v]) ###kg/m^2 s  --> mol/km^2 hr
+        gfas_data[str(pol)]  =  np.array(gfas_open.variables[var[0]])*36*(10**11)/float(mvar[v]) ###kg/m^2 s  --> mol/km^2 hr
         gfas_name[str(pol)]  =  gfas_open.variables[var[0]].long_name
         
         gfas_data[str(pol)][gfas_data[str(pol)]<=0] = 0
 
-    ##### referencia PRE-CHEM
+    #####  PRE-CHEM reference
     temp_fact_utc = [0.052, 0.045, 0.035, 0.026, 0.018, 0.015, 0.020, 0.025, 
                     0.031, 0.036, 0.041, 0.045, 0.048, 0.050, 0.050, 0.049,
                     0.047, 0.047, 0.048, 0.050, 0.053, 0.056, 0.058, 0.056]
@@ -32,7 +32,7 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
     lons_ecmwf     = np.array(gfas_open.variables['longitude'])
     lats_ecmwf     = np.array(gfas_open.variables['latitude']) 
 
-    ### aqui las longitudes ya son un vector.
+    ### Here the lengths are already a vector.
     #soil_temp      = np.roll(soil_temp_avg,int(soil_temp_avg.shape[2]/2),axis=2)   
     lon_res        = abs(lons_ecmwf[1]-lons_ecmwf[0])
     lat_res        = abs(lats_ecmwf[1]-lats_ecmwf[0])
@@ -42,7 +42,7 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
     srclon_cen     = lons_ecmwf
     srclat_cen     = lats_ecmwf
 
-    #### estas lineas fueron actualizadas.
+    #### These lines were updated.
     srclat_cor  = np.linspace(lats_ecmwf[0]+lat_res/2,lats_ecmwf[-1]-lat_res/2,lats_ecmwf.shape[0]+1)
     srclon_cor  = np.arange(lons_ecmwf[0]-lon_res/2,lons_ecmwf[-1]+lon_res,lon_res)
 
@@ -65,7 +65,7 @@ def fires(wrf_inp_p,wrf_geo_p,gfas_path,var,mvar,regrid_method,sim_time,dom,proj
     bytime        = pd.date_range(str(dates), freq="D", periods=31)
     nhoras        = ["{:02d}".format(n) for n in np.arange(0,24,1)]
     for q,m in enumerate(bytime):
-        for d in nhoras:
+        for h,d in enumerate(nhoras):
             date          = pd.to_datetime(m).strftime('%Y-%m-%d')+ '_'+d+':00:00'
             filename      = output_reg + 'wrffirechemi_d0%s_%s'%(dom,str(date).replace(":","_"))
             dataset       = cdf.Dataset(filename,'w',format='NETCDF3_CLASSIC')

@@ -29,19 +29,19 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
             data[np.isnan(data)] = 0
             means.append(data)
         wchts_data[nm] = np.mean(means, axis=0)
-        wchts_data[nm] = wchts_data[nm]*36
+        wchts_data[nm] = wchts_data[nm]*3600
 
     lons_wchts   = np.array(wchts_open.variables['lon'])
     lats_wchts   = np.array(wchts_open.variables['lat'])
 
-    ### aqui las longitudes ya son un vector.
+    ### Here the lengths are already a vector.
     lon_res        = abs(lons_wchts[1]-lons_wchts[0])
     lat_res        = abs(lats_wchts[1]-lats_wchts[0])
 
     srclon_cen     = lons_wchts
     srclat_cen     = lats_wchts
 
-    #### estas lineas fueron actualizadas.
+    #### These lines were updated.
     srclat_cor  = np.linspace(lats_wchts[0]+lat_res/2,lats_wchts[-1]-lat_res/2,lats_wchts.shape[0]+1)
     srclon_cor  = np.arange(lons_wchts[0]-lon_res/2,lons_wchts[-1]+lon_res,lon_res)
 
@@ -54,6 +54,39 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
     for nm in num_model:
         wchts_data_re[str(nm)]  = regridder(wchts_data[str(nm)])  
 
+    ################### CAMS Fluxs  data --- convert kg/m^2 s to mol/km^2 hr
+    cams_data = {}; means = []
+    files = sorted(glob.glob(cams_path+'cams73_latest_ch4_flux_surface_satellite_mm*.nc'))
+    stn = list(filter(lambda a: "0"+str(month)+".nc" in a,files))
+    for f in stn:
+        cams_open = cdf.Dataset(f)
+        data = np.array(cams_open.variables['ch4_emis_total'][:][0])
+        data[data<=0] = 0
+        data[np.isnan(data)] = 0
+        means.append(data)
+    cams_data = np.mean(means, axis=0)
+    cams_data = cams_data*(36/(float(mvar[var.index('CH4')])))*10**11    ## kg/m2s  --> mol/km^2 hr
+
+    lons_cams   = np.array(cams_open.variables['longitude'])
+    lats_cams   = np.array(cams_open.variables['latitude'])
+
+    ### Here the lengths are already a vector.
+    lon_res        = abs(lons_cams[1]-lons_cams[0])
+    lat_res        = abs(lats_cams[1]-lats_cams[0])
+
+    srclon_cen     = lons_cams
+    srclat_cen     = lats_cams
+
+    #### These lines were updated.
+    srclat_cor  = np.linspace(lats_cams[0]+lat_res/2,lats_cams[-1]-lat_res/2,lats_cams.shape[0]+1)
+    srclon_cor  = np.arange(lons_cams[0]-lon_res/2,lons_cams[-1]+lon_res,lon_res)
+
+    grid_in   = {'lon':srclon_cen,'lat':srclat_cen, 'lon_b':srclon_cor,'lat_b':srclat_cor}
+    grid_out  = {'lon':wrf_lon[0],'lat':wrf_lat[0], 'lon_b':wrf_lon_c[0],'lat_b':wrf_lat_c[0]}
+
+    regridder = xe.Regridder(grid_in,grid_out,regrid_method,reuse_weights=False)
+
+    cams_data_re  = regridder(cams_data)
     ###################################################################################################
     ################# EDGAR data
     edgar_data = {}; edgar_units = {}
@@ -62,7 +95,7 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
         edgar_open['lon_adj'] = xr.where(edgar_open['lon']> 180, edgar_open['lon'] - 360, edgar_open['lon'])
         edgar_open            = edgar_open.sortby(edgar_open["lon_adj"])
         
-        edgar_data[str(pol)]  = np.array(edgar_open['emis_tot'][month-1,:,:])*36*(10**9)/float(mvar[v])  ###kg/m^2 s  --> mol/km^2 hr 
+        edgar_data[str(pol)]  = np.array(edgar_open['emis_tot'][month-1,:,:])*36*(10**11)/float(mvar[v])  ###kg/m^2 s  --> mol/km^2 hr 
         edgar_units[str(pol)] = edgar_open['emis_tot'].units
         
         lons_edgar     = np.array(edgar_open['lon_adj'])
@@ -73,14 +106,14 @@ def anthr(wrf_geo_p,wrf_inp_p,wchts_path,num_model,mvar,edgar_path,var,regrid_me
                     0.031, 0.036, 0.041, 0.045, 0.048, 0.050, 0.050, 0.049,
                     0.047, 0.047, 0.048, 0.050, 0.053, 0.056, 0.058, 0.056]
 
-    ### aqui las longitudes ya son un vector.
+    ### Here the lengths are already a vector.
     lon_res        = abs(lons_edgar[1]-lons_edgar[0])
     lat_res        = abs(lats_edgar[1]-lats_edgar[0])
 
     srclon_cen     = lons_edgar
     srclat_cen     = lats_edgar
 
-    #### estas lineas fueron actualizadas.
+    #### These lines were updated.
     srclat_cor  = np.linspace(lats_edgar[0]+lat_res/2,lats_edgar[-1]-lat_res/2,lats_edgar.shape[0]+1)
     srclon_cor  = np.arange(lons_edgar[0]-lon_res/2,lons_edgar[-1]+lon_res,lon_res)
 
