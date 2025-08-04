@@ -10,7 +10,7 @@ for i in {AWB,CHE,ENE,FFF,FOO_PAP,IND,IRO,NFE,NMM,PRO,RCO,REF_TRF,SWD_INC,TNR_Av
 do
 mkdir $i
 cd $i
-URLS="http://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v61_AP/CO/$i/EDGARv6.1_CO_2018_monthly_$i""_nc.zip"
+URLS="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v61_AP/CO/$i/EDGARv6.1_CO_2018_monthly_$i""_nc.zip"
 for u in $URLS
 do
 wget "$u"
@@ -27,7 +27,7 @@ for i in {AGS,CHE,ENE,FFF,IND,IRO,NFE,NMM,PRO,RCO,REF_TRF,SWD_INC,TNR_Aviation_C
 do
 mkdir $i
 cd $i
-URLS="http://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CO2_excl_short-cycle_org_C/$i/v6.0_CO2_excl_short-cycle_org_C_2018_monthly_$i""_nc.zip"
+URLS="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CO2_excl_short-cycle_org_C/$i/v6.0_CO2_excl_short-cycle_org_C_2018_monthly_$i""_nc.zip"
 for u in $URLS
 do
 wget "$u"
@@ -44,7 +44,7 @@ for i in {AWB,ENE,IND,RCO,REF_TRF,SWD_INC,TNR_Other,TNR_Ship,TRO_noRES}
 do
 mkdir $i
 cd $i
-URLS="http://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CO2_org_short-cycle_C/$i/v6.0_CO2_org_short-cycle_C_2018_monthly_$i""_nc.zip"
+URLS="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CO2_org_short-cycle_C/$i/v6.0_CO2_org_short-cycle_C_2018_monthly_$i""_nc.zip"
 for u in $URLS
 do
 wget "$u"
@@ -61,7 +61,7 @@ for i in {ENE,REF_TRF,IND,RCO,PRO_COAL,PRO,PRO_OIL,PRO_GAS,TRO_noRES,TNR_Other,T
 do
 mkdir $i
 cd $i
-URLS="http://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CH4/$i/v6.0_CH4_2018_monthly_$i""_nc.zip"
+URLS="https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v60_GHG/CH4/$i/v6.0_CH4_2018_monthly_$i""_nc.zip"
 for u in $URLS
 do
 wget "$u"
