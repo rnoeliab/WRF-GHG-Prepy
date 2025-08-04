@@ -111,7 +111,7 @@ pip install git+https://github.com/tglauch/pyVPRM.git
 
 ##### A.2.3 Land Cover map download
 
-On the [Global Land Cover - Copernicus](https://lcviewer.vito.be/2019) website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
+On the [Global Land Cover - Copernicus](https://land.copernicus.eu/en/map-viewer?dataset=a8d945f0edd143a0a5240c28bafa23da) website, in the menu bar, click on download. Several tiles will appear, click on the necessary tiles. Save in [copernicus](https://github.com/tglauch/pyVPRM_examples/tree/main/wrf_preprocessor/data/copernicus) folder.
 
 ![all text](https://github.com/rnoeliab/WRF-GHG-Prepy/blob/main/imags/copernicus_tiles.png)
 
